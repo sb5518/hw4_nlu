@@ -251,7 +251,7 @@ def prepare_wmt_data(data_dir, en_vocabulary_size, ja_vocabulary_size, tokenizer
     # Get data to the specified directory.
     train_path = get_wmt_enja_train_set(data_dir)
     dev_path = get_wmt_enja_dev_set(data_dir)
-    text_path = get_wmt_enja_test_set(data_dir)
+    test_path = get_wmt_enja_test_set(data_dir)
 
     # Create vocabularies of the appropriate sizes.
     ja_vocab_path = os.path.join(data_dir, "vocab%d.ja" % ja_vocabulary_size)
@@ -268,9 +268,12 @@ def prepare_wmt_data(data_dir, en_vocabulary_size, ja_vocabulary_size, tokenizer
     # Create token ids for the development data.
     ja_dev_ids_path = dev_path + (".ids%d.ja" % ja_vocabulary_size)
     en_dev_ids_path = dev_path + (".ids%d.en" % en_vocabulary_size)
+    ja_test_ids_path = test_path + (".ids%d.ja" % ja_vocabulary_size)
+    en_test_ids_path = test_path + (".ids%d.en" % en_vocabulary_size)
     data_to_token_ids(dev_path + ".ja", ja_dev_ids_path, ja_vocab_path, tokenizer)
     data_to_token_ids(dev_path + ".en", en_dev_ids_path, en_vocab_path, tokenizer)
 
     return (en_train_ids_path, ja_train_ids_path,
             en_dev_ids_path, ja_dev_ids_path,
+            en_test_ids_path, ja_test_ids_path,
             en_vocab_path, ja_vocab_path)
