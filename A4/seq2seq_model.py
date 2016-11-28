@@ -56,6 +56,7 @@ class Seq2SeqModel(object):
                  use_lstm=False,
                  num_samples=512,
                  forward_only=False,
+                 type_att='att',
                  dtype=tf.float32):
         """Create the model.
 
@@ -123,17 +124,30 @@ class Seq2SeqModel(object):
             cell = tf.nn.rnn_cell.MultiRNNCell([single_cell] * num_layers)
 
         # The seq2seq function: we use embedding for the input and attention.
-        def seq2seq_f(encoder_inputs, decoder_inputs, do_decode):
-            return tf.nn.seq2seq.embedding_attention_seq2seq(
-                encoder_inputs,
-                decoder_inputs,
-                cell,
-                num_encoder_symbols=source_vocab_size,
-                num_decoder_symbols=target_vocab_size,
-                embedding_size=size,
-                output_projection=output_projection,
-                feed_previous=do_decode,
-                dtype=dtype)
+        def seq2seq_f(encoder_inputs, decoder_inputs, do_decode, type_att):
+            if type_att == 'att':
+                return tf.nn.seq2seq.embedding_attention_seq2seq(
+                    encoder_inputs,
+                    decoder_inputs,
+                    cell,
+                    num_encoder_symbols=source_vocab_size,
+                    num_decoder_symbols=target_vocab_size,
+                    embedding_size=size,
+                    output_projection=output_projection,
+                    feed_previous=do_decode,
+                    dtype=dtype)
+            else:
+                return tf.nn.seq2seq.embedding_rnn_seq2seq(encoder_inputs,
+                                      decoder_inputs,
+                                      cell,
+                                                    num_encoder_symbols=source_vocab_size,
+                                                    num_decoder_symbols=target_vocab_size,
+                                                    embedding_size=size,
+                                                    output_projection=output_projection,
+                                                    feed_previous=do_decode,
+                                                    dtype=dtype)
+
+
 
         # Feeds for inputs.
         self.encoder_inputs = []
@@ -156,7 +170,7 @@ class Seq2SeqModel(object):
         if forward_only:
             self.outputs, self.losses = tf.nn.seq2seq.model_with_buckets(
                 self.encoder_inputs, self.decoder_inputs, targets,
-                self.target_weights, buckets, lambda x, y: seq2seq_f(x, y, True),
+                self.target_weights, buckets, lambda x, y: seq2seq_f(x, y, True, type_att),
                 softmax_loss_function=softmax_loss_function)
             # If we use output projection, we need to project outputs for decoding.
             if output_projection is not None:
@@ -169,7 +183,7 @@ class Seq2SeqModel(object):
             self.outputs, self.losses = tf.nn.seq2seq.model_with_buckets(
                 self.encoder_inputs, self.decoder_inputs, targets,
                 self.target_weights, buckets,
-                lambda x, y: seq2seq_f(x, y, False),
+                lambda x, y: seq2seq_f(x, y, False, type_att),
                 softmax_loss_function=softmax_loss_function)
 
         # Gradients and SGD update operation for training the model.
