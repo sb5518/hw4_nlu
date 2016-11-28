@@ -89,8 +89,6 @@ class Seq2SeqModel(object):
         self.learning_rate_decay_op = self.learning_rate.assign(
             self.learning_rate * learning_rate_decay_factor)
         self.global_step = tf.Variable(0, trainable=False)
-        if forward_only==False:
-            type_attt = 'att'
 
 
         # If we use sampled softmax, we need an output projection.
@@ -172,7 +170,7 @@ class Seq2SeqModel(object):
         if forward_only:
             self.outputs, self.losses = tf.nn.seq2seq.model_with_buckets(
                 self.encoder_inputs, self.decoder_inputs, targets,
-                self.target_weights, buckets, lambda x, y: seq2seq_f(x, y, True, type_attt),
+                self.target_weights, buckets, lambda x, y: seq2seq_f(x, y, True, None),
                 softmax_loss_function=softmax_loss_function)
             # If we use output projection, we need to project outputs for decoding.
             if output_projection is not None:
@@ -185,7 +183,7 @@ class Seq2SeqModel(object):
             self.outputs, self.losses = tf.nn.seq2seq.model_with_buckets(
                 self.encoder_inputs, self.decoder_inputs, targets,
                 self.target_weights, buckets,
-                lambda x, y: seq2seq_f(x, y, False, type_attt),
+                lambda x, y: seq2seq_f(x, y, False, 'att'),
                 softmax_loss_function=softmax_loss_function)
 
         # Gradients and SGD update operation for training the model.
