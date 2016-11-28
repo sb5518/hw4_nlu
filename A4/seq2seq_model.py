@@ -56,7 +56,6 @@ class Seq2SeqModel(object):
                  use_lstm=False,
                  num_samples=512,
                  forward_only=False,
-                 type_att='att',
                  dtype=tf.float32):
         """Create the model.
 
@@ -90,6 +89,9 @@ class Seq2SeqModel(object):
         self.learning_rate_decay_op = self.learning_rate.assign(
             self.learning_rate * learning_rate_decay_factor)
         self.global_step = tf.Variable(0, trainable=False)
+        if forward_only==False:
+            type_att = 'att'
+
 
         # If we use sampled softmax, we need an output projection.
         output_projection = None
