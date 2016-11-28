@@ -1,0 +1,2708 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class=" is-copy-enabled is-u2f-enabled">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+    <meta charset='utf-8'>
+    
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-92d354668263723b226099d22b6ff9945593c2bfe41f4403b91481b735f484b0.css" integrity="sha256-ktNUZoJjcjsiYJnSK2/5lFWTwr/kH0QDuRSBtzX0hLA=" media="all" rel="stylesheet" />
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-7ec438ba7c15d1510c0d2b3bf1f8c7fcd0f7660c73590fa65e728a279787ca91.css" integrity="sha256-fsQ4unwV0VEMDSs78fjH/ND3ZgxzWQ+mXnKKJ5eHypE=" media="all" rel="stylesheet" />
+    
+    
+    
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>nmt-tips/dev.ja at master · neubig/nmt-tips</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="https://avatars1.githubusercontent.com/u/398875?v=3&amp;s=400" name="twitter:image:src" /><meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="neubig/nmt-tips" name="twitter:title" /><meta content="nmt-tips - A tutorial about neural machine translation including tips on building practical systems" name="twitter:description" />
+      <meta content="https://avatars1.githubusercontent.com/u/398875?v=3&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="neubig/nmt-tips" property="og:title" /><meta content="https://github.com/neubig/nmt-tips" property="og:url" /><meta content="nmt-tips - A tutorial about neural machine translation including tips on building practical systems" property="og:description" />
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/MTQ1OTI2MzI6MjQ5ZTU0MGRmODhhMjVmMTE3NDUzYzFhYTVhMzU5ZjE6MzRiYmQ5MWNjNmExYzZmYTIzN2VlOGE2NjMyZDQ3NzYwMTc0YmNhYzZmYWVkMmNmYzVmZWFhZDA4MmJkMDI4ZQ==--51090d4e565a7aedb047304f06307524f974f474">
+    <meta name="pjax-timeout" content="1000">
+    <link rel="sudo-modal" href="/sessions/sudo_modal">
+    <meta name="request-id" content="D8A55F08:7586:20171D94:583B1586" data-pjax-transient>
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-analytics" content="UA-3769691-2">
+
+<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="D8A55F08:7586:20171D94:583B1586" name="octolytics-dimension-request_id" /><meta content="14592632" name="octolytics-actor-id" /><meta content="sb5518" name="octolytics-actor-login" /><meta content="20b007a3faa254d0c25b43fe635974cea56bb785935e47f681066fc9d857dbff" name="octolytics-actor-hash" />
+<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
+
+
+
+  <meta class="js-ga-set" name="dimension1" content="Logged In">
+
+
+
+        <meta name="hostname" content="github.com">
+    <meta name="user-login" content="sb5518">
+
+        <meta name="expected-hostname" content="github.com">
+      <meta name="js-proxy-site-detection-payload" content="NzA5ZTE4NzIwODIwYjA1NmM5ODNiY2I1MWNmNzg1MDNlZjgxYTFjYWY4MDQxMTM3NjkyMDVkNDVmOTQ5NDAwMnx7InJlbW90ZV9hZGRyZXNzIjoiMjE2LjE2NS45NS44IiwicmVxdWVzdF9pZCI6IkQ4QTU1RjA4Ojc1ODY6MjAxNzFEOTQ6NTgzQjE1ODYiLCJ0aW1lc3RhbXAiOjE0ODAyNjcxNDIsImhvc3QiOiJnaXRodWIuY29tIn0=">
+
+
+      <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <meta name="html-safe-nonce" content="f68ba4bf4c9e09d2a70bf20ce91f4a6f57702279">
+    <meta content="26770e1c498f48fa20ba2c368fdb3833553ee877" name="form-nonce" />
+
+    <meta http-equiv="x-pjax-version" content="6b67469695dca00bd0736dc07efc5838">
+    
+
+      
+  <meta name="description" content="nmt-tips - A tutorial about neural machine translation including tips on building practical systems">
+  <meta name="go-import" content="github.com/neubig/nmt-tips git https://github.com/neubig/nmt-tips.git">
+
+  <meta content="398875" name="octolytics-dimension-user_id" /><meta content="neubig" name="octolytics-dimension-user_login" /><meta content="64360089" name="octolytics-dimension-repository_id" /><meta content="neubig/nmt-tips" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="64360089" name="octolytics-dimension-repository_network_root_id" /><meta content="neubig/nmt-tips" name="octolytics-dimension-repository_network_root_nwo" />
+  <link href="https://github.com/neubig/nmt-tips/commits/master.atom" rel="alternate" title="Recent Commits to nmt-tips:master" type="application/atom+xml">
+
+
+      <link rel="canonical" href="https://github.com/neubig/nmt-tips/blob/master/data/dev.ja" data-pjax-transient>
+  </head>
+
+
+  <body class="logged-in  env-production linux vis-public page-blob">
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+
+    
+    
+    
+
+
+
+        <div class="header header-logged-in true" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
+  <svg aria-hidden="true" class="octicon octicon-mark-github" height="28" version="1.1" viewBox="0 0 16 16" width="28"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+
+
+        <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/neubig/nmt-tips/search" class="js-site-search-form" data-scoped-search-url="/neubig/nmt-tips/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <label class="form-control header-search-wrapper js-chromeless-input-container">
+      <div class="header-search-scope">This repository</div>
+      <input type="text"
+        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
+        data-hotkey="s"
+        name="q"
+        placeholder="Search"
+        aria-label="Search this repository"
+        data-unscoped-placeholder="Search GitHub"
+        data-scoped-placeholder="Search"
+        autocapitalize="off">
+    </label>
+</form></div>
+
+
+      <ul class="header-nav float-left" role="navigation">
+        <li class="header-nav-item">
+          <a href="/pulls" aria-label="Pull requests you created" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:pulls context:user" data-hotkey="g p" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls">
+            Pull requests
+</a>        </li>
+        <li class="header-nav-item">
+          <a href="/issues" aria-label="Issues you created" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:issues context:user" data-hotkey="g i" data-selected-links="/issues /issues/assigned /issues/mentioned /issues">
+            Issues
+</a>        </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://gist.github.com/" data-ga-click="Header, go to gist, text:gist">Gist</a>
+          </li>
+      </ul>
+
+    
+<ul class="header-nav user-nav float-right" id="user-links">
+  <li class="header-nav-item">
+    
+    <a href="/notifications" aria-label="You have unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s js-socket-channel js-notification-indicator" data-channel="tenant:1:notification-changed:14592632" data-ga-click="Header, go to notifications, icon:unread" data-hotkey="g n">
+        <span class="mail-status unread"></span>
+        <svg aria-hidden="true" class="octicon octicon-bell" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 12v1H0v-1l.73-.58c.77-.77.81-2.55 1.19-4.42C2.69 3.23 6 2 6 2c0-.55.45-1 1-1s1 .45 1 1c0 0 3.39 1.23 4.16 5 .38 1.88.42 3.66 1.19 4.42l.66.58H14zm-7 4c1.11 0 2-.89 2-2H5c0 1.11.89 2 2 2z"/></svg>
+</a>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link tooltipped tooltipped-s js-menu-target" href="/new"
+       aria-label="Create new…"
+       data-ga-click="Header, create new, icon:add">
+      <svg aria-hidden="true" class="octicon octicon-plus float-left" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 9H7v5H5V9H0V7h5V2h2v5h5z"/></svg>
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      <ul class="dropdown-menu dropdown-menu-sw">
+        
+<a class="dropdown-item" href="/new" data-ga-click="Header, create new repository">
+  New repository
+</a>
+
+  <a class="dropdown-item" href="/new/import" data-ga-click="Header, import a repository">
+    Import repository
+  </a>
+
+<a class="dropdown-item" href="https://gist.github.com/" data-ga-click="Header, create new gist">
+  New gist
+</a>
+
+  <a class="dropdown-item" href="/organizations/new" data-ga-click="Header, create new organization">
+    New organization
+  </a>
+
+
+
+  <div class="dropdown-divider"></div>
+  <div class="dropdown-header">
+    <span title="neubig/nmt-tips">This repository</span>
+  </div>
+    <a class="dropdown-item" href="/neubig/nmt-tips/issues/new" data-ga-click="Header, create new issue">
+      New issue
+    </a>
+
+      </ul>
+    </div>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link name tooltipped tooltipped-sw js-menu-target" href="/sb5518"
+       aria-label="View profile and more"
+       data-ga-click="Header, show menu, icon:avatar">
+      <img alt="@sb5518" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/14592632?v=3&amp;s=40" width="20" />
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      <div class="dropdown-menu dropdown-menu-sw">
+        <div class="dropdown-header header-nav-current-user css-truncate">
+          Signed in as <strong class="css-truncate-target">sb5518</strong>
+        </div>
+
+        <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="/sb5518" data-ga-click="Header, go to profile, text:your profile">
+          Your profile
+        </a>
+        <a class="dropdown-item" href="/sb5518?tab=stars" data-ga-click="Header, go to starred repos, text:your stars">
+          Your stars
+        </a>
+        <a class="dropdown-item" href="/explore" data-ga-click="Header, go to explore, text:explore">
+          Explore
+        </a>
+          <a class="dropdown-item" href="/integrations" data-ga-click="Header, go to integrations, text:integrations">
+            Integrations
+          </a>
+        <a class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">
+          Help
+        </a>
+
+        <div class="dropdown-divider"></div>
+
+        <a class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">
+          Settings
+        </a>
+
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="26770e1c498f48fa20ba2c368fdb3833553ee877" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="eZBojHcAAHFmOYHBSXAMU0w7p+g8VNSGwL3LeZVc2AQD8qswwxZtY9j9VmuZXlc+Mb408+hGRZ6mUdimibpN4Q==" /></div>
+          <button type="submit" class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
+            Sign out
+          </button>
+</form>      </div>
+    </div>
+  </li>
+</ul>
+
+
+    
+  </div>
+</div>
+
+
+      
+
+
+    <div id="start-of-content" class="accessibility-aid"></div>
+
+      <div id="js-flash-container">
+</div>
+
+
+    <div role="main">
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
+    <div id="js-repo-pjax-container" data-pjax-container>
+      
+<div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
+  <div class="container repohead-details-container">
+
+    
+
+<ul class="pagehead-actions">
+
+  <li>
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="26770e1c498f48fa20ba2c368fdb3833553ee877" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="w2kKg5SgB0v74DsaOKTWYHK/LI65iPDDka1DmFakZr65C8k/ILZqWUUk7LDoio0NDzq/lW2aYdv3QVBHSkLzWw==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="64360089" />
+
+        <div class="select-menu js-menu-container js-select-menu">
+          <a href="/neubig/nmt-tips/subscription"
+            class="btn btn-sm btn-with-count select-menu-button js-menu-target" role="button" tabindex="0" aria-haspopup="true"
+            data-ga-click="Repository, click Watch settings, action:blob#show">
+            <span class="js-select-button">
+              <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+              Watch
+            </span>
+          </a>
+          <a class="social-count js-social-count"
+            href="/neubig/nmt-tips/watchers"
+            aria-label="14 users are watching this repository">
+            14
+          </a>
+
+        <div class="select-menu-modal-holder">
+          <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
+            <div class="select-menu-header js-navigation-enable" tabindex="-1">
+              <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+              <span class="select-menu-title">Notifications</span>
+            </div>
+
+              <div class="select-menu-list js-navigation-container" role="menu">
+
+                <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
+                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+                  <div class="select-menu-item-text">
+                    <input checked="checked" id="do_included" name="do" type="radio" value="included" />
+                    <span class="select-menu-item-heading">Not watching</span>
+                    <span class="description">Be notified when participating or @mentioned.</span>
+                    <span class="js-select-button-text hidden-select-button-text">
+                      <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+                      Watch
+                    </span>
+                  </div>
+                </div>
+
+                <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+                  <div class="select-menu-item-text">
+                    <input id="do_subscribed" name="do" type="radio" value="subscribed" />
+                    <span class="select-menu-item-heading">Watching</span>
+                    <span class="description">Be notified of all conversations.</span>
+                    <span class="js-select-button-text hidden-select-button-text">
+                      <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+                      Unwatch
+                    </span>
+                  </div>
+                </div>
+
+                <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+                  <div class="select-menu-item-text">
+                    <input id="do_ignore" name="do" type="radio" value="ignore" />
+                    <span class="select-menu-item-heading">Ignoring</span>
+                    <span class="description">Never be notified.</span>
+                    <span class="js-select-button-text hidden-select-button-text">
+                      <svg aria-hidden="true" class="octicon octicon-mute" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8 2.81v10.38c0 .67-.81 1-1.28.53L3 10H1c-.55 0-1-.45-1-1V7c0-.55.45-1 1-1h2l3.72-3.72C7.19 1.81 8 2.14 8 2.81zm7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06L11.44 8 9.47 9.97l1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06L13.56 8l1.97-1.97z"/></svg>
+                      Stop ignoring
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+</form>
+  </li>
+
+  <li>
+    
+  <div class="js-toggler-container js-social-container starring-container ">
+
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/neubig/nmt-tips/unstar" class="starred" data-form-nonce="26770e1c498f48fa20ba2c368fdb3833553ee877" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="iSpskvzNYCO1AeFgeNAHkovRcNJW0BWHvwVQPN/ZlVHzSK8uSNsNMQvFNsqo/lz/9lTjyYLChJ/Z6UPjwz8AtA==" /></div>
+      <button
+        type="submit"
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Unstar this repository" title="Unstar neubig/nmt-tips"
+        data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">
+        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="/neubig/nmt-tips/stargazers"
+           aria-label="127 users starred this repository">
+          127
+        </a>
+</form>
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/neubig/nmt-tips/star" class="unstarred" data-form-nonce="26770e1c498f48fa20ba2c368fdb3833553ee877" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="WvU/TLydsxRCegO2eaw2EsYteyD/DKqj2i5L5BJNF8Mgl/zwCIveBvy+1Bypgm1/u6joOyseO7u8wlg7DquCJg==" /></div>
+      <button
+        type="submit"
+        class="btn btn-sm btn-with-count js-toggler-target"
+        aria-label="Star this repository" title="Star neubig/nmt-tips"
+        data-ga-click="Repository, click star button, action:blob#show; text:Star">
+        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"/></svg>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="/neubig/nmt-tips/stargazers"
+           aria-label="127 users starred this repository">
+          127
+        </a>
+</form>  </div>
+
+  </li>
+
+  <li>
+          <a href="#fork-destination-box" class="btn btn-sm btn-with-count"
+              title="Fork your own copy of neubig/nmt-tips to your account"
+              aria-label="Fork your own copy of neubig/nmt-tips to your account"
+              rel="facebox"
+              data-ga-click="Repository, show fork modal, action:blob#show; text:Fork">
+              <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+            Fork
+          </a>
+
+          <div id="fork-destination-box" style="display: none;">
+            <h2 class="facebox-header" data-facebox-id="facebox-header">Where should we fork this repository?</h2>
+            <include-fragment src=""
+                class="js-fork-select-fragment fork-select-fragment"
+                data-url="/neubig/nmt-tips/fork?fragment=1">
+              <img alt="Loading" height="64" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-128.gif" width="64" />
+            </include-fragment>
+          </div>
+
+    <a href="/neubig/nmt-tips/network" class="social-count"
+       aria-label="24 users forked this repository">
+      24
+    </a>
+  </li>
+</ul>
+
+    <h1 class="public ">
+  <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a href="/neubig" class="url fn" rel="author">neubig</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a href="/neubig/nmt-tips" data-pjax="#js-repo-pjax-container">nmt-tips</a></strong>
+
+</h1>
+
+  </div>
+  <div class="container">
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+     role="navigation"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/neubig/nmt-tips" aria-selected="true" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /neubig/nmt-tips" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a href="/neubig/nmt-tips/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /neubig/nmt-tips/issues" itemprop="url">
+        <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="counter">0</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a href="/neubig/nmt-tips/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /neubig/nmt-tips/pulls" itemprop="url">
+      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="counter">0</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+  <a href="/neubig/nmt-tips/projects" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /neubig/nmt-tips/projects">
+    <svg aria-hidden="true" class="octicon octicon-project" height="16" version="1.1" viewBox="0 0 15 16" width="15"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+    Projects
+    <span class="counter">0</span>
+</a>
+    <a href="/neubig/nmt-tips/wiki" class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /neubig/nmt-tips/wiki">
+      <svg aria-hidden="true" class="octicon octicon-book" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
+      Wiki
+</a>
+
+  <a href="/neubig/nmt-tips/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="pulse /neubig/nmt-tips/pulse">
+    <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0v2h3.6l.9-1.8.9 5.4L9 8.5l1.6 1.5H14V8z"/></svg>
+    Pulse
+</a>
+  <a href="/neubig/nmt-tips/graphs" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors /neubig/nmt-tips/graphs">
+    <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+    Graphs
+</a>
+
+</nav>
+
+  </div>
+</div>
+
+<div class="container new-discussion-timeline experiment-repo-nav">
+  <div class="repository-content">
+
+    
+
+<a href="/neubig/nmt-tips/blob/c81d8b4fb8266dd4bd48df2ea4e7aed98bc90021/data/dev.ja" class="d-none js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+<!-- blob contrib key: blob_contributors:v21:12ee9ca1f2a7adb524c11364bc7fc983 -->
+
+<div class="file-navigation js-zeroclipboard-container">
+  
+<div class="select-menu branch-select-menu js-menu-container js-select-menu float-left">
+  <button class="btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
+    
+    type="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <i>Branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </button>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+        <span class="select-menu-title">Switch branches/tags</span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab" role="tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open selected"
+               href="/neubig/nmt-tips/blob/master/data/dev.ja"
+               data-name="master"
+               data-skip-pjax="true"
+               rel="nofollow">
+              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"/></svg>
+              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text">
+                master
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="BtnGroup float-right">
+    <a href="/neubig/nmt-tips/find/master"
+          class="js-pjax-capture-input btn btn-sm BtnGroup-item"
+          data-pjax
+          data-hotkey="t">
+      Find file
+    </a>
+    <button aria-label="Copy file path to clipboard" class="js-zeroclipboard btn btn-sm BtnGroup-item tooltipped tooltipped-s" data-copied-hint="Copied!" type="button">Copy path</button>
+  </div>
+  <div class="breadcrumb js-zeroclipboard-target">
+    <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/neubig/nmt-tips"><span>nmt-tips</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/neubig/nmt-tips/tree/master/data"><span>data</span></a></span><span class="separator">/</span><strong class="final-path">dev.ja</strong>
+  </div>
+</div>
+
+
+  <div class="commit-tease">
+      <span class="float-right">
+        <a class="commit-tease-sha" href="/neubig/nmt-tips/commit/10612d1f16dabafc6a2109a881bba7e4002aaebd" data-pjax>
+          10612d1
+        </a>
+        <relative-time datetime="2016-07-27T06:47:00Z">Jul 27, 2016</relative-time>
+      </span>
+      <div>
+        <img alt="@neubig" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/398875?v=3&amp;s=40" width="20" />
+        <a href="/neubig" class="user-mention" rel="author">neubig</a>
+          <a href="/neubig/nmt-tips/commit/10612d1f16dabafc6a2109a881bba7e4002aaebd" class="message" data-pjax="true" title="Initial commit">Initial commit</a>
+      </div>
+
+    <div class="commit-tease-contributors">
+      <button type="button" class="btn-link muted-link contributors-toggle" data-facebox="#blob_contributors_box">
+        <strong>1</strong>
+         contributor
+      </button>
+      
+    </div>
+
+    <div id="blob_contributors_box" style="display:none">
+      <h2 class="facebox-header" data-facebox-id="facebox-header">Users who have contributed to this file</h2>
+      <ul class="facebox-user-list" data-facebox-id="facebox-description">
+          <li class="facebox-user-list-item">
+            <img alt="@neubig" height="24" src="https://avatars3.githubusercontent.com/u/398875?v=3&amp;s=48" width="24" />
+            <a href="/neubig">neubig</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+
+
+<div class="file">
+  <div class="file-header">
+  <div class="file-actions">
+
+    <div class="BtnGroup">
+      <a href="/neubig/nmt-tips/raw/master/data/dev.ja" class="btn btn-sm BtnGroup-item" id="raw-url">Raw</a>
+        <a href="/neubig/nmt-tips/blame/master/data/dev.ja" class="btn btn-sm js-update-url-with-hash BtnGroup-item">Blame</a>
+      <a href="/neubig/nmt-tips/commits/master/data/dev.ja" class="btn btn-sm BtnGroup-item" rel="nofollow">History</a>
+    </div>
+
+
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/neubig/nmt-tips/edit/master/data/dev.ja" class="inline-form js-update-url-with-hash" data-form-nonce="26770e1c498f48fa20ba2c368fdb3833553ee877" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="5tUtPpPP7xxoJyR/wpyxiVsQA5Y0qKOHvV7e8x6ZyPect+6CJ9mCDtbj89USsurkJpWQjeC6Mp/bss0sAn9dEg==" /></div>
+          <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
+            aria-label="Fork this project and edit the file" data-hotkey="e" data-disable-with>
+            <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
+          </button>
+</form>        <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/neubig/nmt-tips/delete/master/data/dev.ja" class="inline-form" data-form-nonce="26770e1c498f48fa20ba2c368fdb3833553ee877" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="vWZCRCgDhHrRjNdmnwKYraCUYRbp6CT2mJIRTRLsXEvHBIH4nBXpaG9IAMxPLMPA3RHyDT36te7+fgKSDgrJrg==" /></div>
+          <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
+            aria-label="Fork this project and delete the file" data-disable-with>
+            <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
+          </button>
+</form>  </div>
+
+  <div class="file-info">
+      501 lines (500 sloc)
+      <span class="file-info-divider"></span>
+    32.9 KB
+  </div>
+</div>
+
+  
+
+  <div itemprop="text" class="blob-wrapper data type-text">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tr>
+        <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line">この 路地 は 通り抜け でき ま せ ん 。</td>
+      </tr>
+      <tr>
+        <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="LC2" class="blob-code blob-code-inner js-file-line">ええ 、 届 い た の を お 知 らせ する の を 忘れ て しま っ て す み ま せ ん 。</td>
+      </tr>
+      <tr>
+        <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="LC3" class="blob-code blob-code-inner js-file-line">彼 は ドイツ 生まれ の 人 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="LC4" class="blob-code blob-code-inner js-file-line">我々 は ロビン フッド の 伝説 を 良く 知 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="LC5" class="blob-code blob-code-inner js-file-line">トランク に は 鍵 が かけ られ て い ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="LC6" class="blob-code blob-code-inner js-file-line">それ は 冗談 の つもり で い っ た だけ だ よ 。</td>
+      </tr>
+      <tr>
+        <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line">その 部屋 は 居心地 の 良 い 感じ が し た 。</td>
+      </tr>
+      <tr>
+        <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="LC8" class="blob-code blob-code-inner js-file-line">パソコン が 使え る の は 彼女 だけ で す 。</td>
+      </tr>
+      <tr>
+        <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="LC9" class="blob-code blob-code-inner js-file-line">彼 ら は 共同 声明 に 同意 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="LC10" class="blob-code blob-code-inner js-file-line">彼 は 彼女 を バス に 助け あげ た 。</td>
+      </tr>
+      <tr>
+        <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="LC11" class="blob-code blob-code-inner js-file-line">彼 に どんな 欠点 が あ る に し て も 、 卑劣 な ところ は な い 。</td>
+      </tr>
+      <tr>
+        <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="LC12" class="blob-code blob-code-inner js-file-line">「 こんな 朝 早く から 開館 し て る ん で す か ？ 」 「 私 は 顔 パス よ 」</td>
+      </tr>
+      <tr>
+        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="LC13" class="blob-code blob-code-inner js-file-line">人間 も 極度 に 寒 い 温度 に 対 し て は 、 防御 装置 を 備え て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="LC14" class="blob-code blob-code-inner js-file-line">私 は タバコ を 吸 う の を やめ た 。</td>
+      </tr>
+      <tr>
+        <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line">彼 は かっと な っ て 私 を 殴 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line">彼 は ロープ を 引っ張 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line">どう し て あやま っ て 彼 の 許し を こ わ な い ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="LC18" class="blob-code blob-code-inner js-file-line">私 は 彼 ら は 来る と 思 う 。</td>
+      </tr>
+      <tr>
+        <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="LC19" class="blob-code blob-code-inner js-file-line">丘 の 上 に 建 っ て い る 家 は とても 古 い 。</td>
+      </tr>
+      <tr>
+        <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="LC20" class="blob-code blob-code-inner js-file-line">私 は 早 く 着 き すぎ た 。</td>
+      </tr>
+      <tr>
+        <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="LC21" class="blob-code blob-code-inner js-file-line">私 は 彼 の 親切 に こたえ た い 。</td>
+      </tr>
+      <tr>
+        <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="LC22" class="blob-code blob-code-inner js-file-line">屋根 は 強風 に 飛ば さ れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="LC23" class="blob-code blob-code-inner js-file-line">霧 の 中 から 突然 船 が 現れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="LC24" class="blob-code blob-code-inner js-file-line">車 が 衝突 し た とき シート ベルト を し て い た ら 、 彼 は 今 で も 生き て い る だ ろ う 。</td>
+      </tr>
+      <tr>
+        <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="LC25" class="blob-code blob-code-inner js-file-line">あなた が 結婚 し 子供 を 持 っ た ら 、 言葉 より 実践 と い う こと を 悟 る で しょ う 。</td>
+      </tr>
+      <tr>
+        <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="LC26" class="blob-code blob-code-inner js-file-line">それ は 遺憾 な ところ が 多 い 。</td>
+      </tr>
+      <tr>
+        <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="LC27" class="blob-code blob-code-inner js-file-line">その 装置 が 作動 し て い る 間 は 暖房 を 止め る こと は でき な い 。</td>
+      </tr>
+      <tr>
+        <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line">ピクニック は 雨 の ため に 中止 に な っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line">彼 は 週末 に よく 家 を 空け る 。</td>
+      </tr>
+      <tr>
+        <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line">その シェパード は 、 びっこ を ひ き ながら 道 を 歩 い て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="LC31" class="blob-code blob-code-inner js-file-line">ボブ は 読 み きれ な い ほど たくさん の 本 を 持 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="LC32" class="blob-code blob-code-inner js-file-line">板 に くぎ を 打ち込 ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="LC33" class="blob-code blob-code-inner js-file-line">宿題 は もう 終わ っ た の で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="LC34" class="blob-code blob-code-inner js-file-line">まず その 辺 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="LC35" class="blob-code blob-code-inner js-file-line">夢 は 、 世界 一周 旅行 。</td>
+      </tr>
+      <tr>
+        <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="LC36" class="blob-code blob-code-inner js-file-line">今夜 は 家 に つれ て い っ て く れ 。</td>
+      </tr>
+      <tr>
+        <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="LC37" class="blob-code blob-code-inner js-file-line">２ 日間 ベッド に い な く て は な ら な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="LC38" class="blob-code blob-code-inner js-file-line">消防 士 は あっ と い う 間 に 火 を 消 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="LC39" class="blob-code blob-code-inner js-file-line">あなた の 傘 を 借り て い い で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="LC40" class="blob-code blob-code-inner js-file-line">明日 雨降り なら 私 は 家 に い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="LC41" class="blob-code blob-code-inner js-file-line">彼女 が 最後 に ゴール し た 人 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="LC42" class="blob-code blob-code-inner js-file-line">写真 ほど 鮮明 な もの は な い 。</td>
+      </tr>
+      <tr>
+        <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="LC43" class="blob-code blob-code-inner js-file-line">減税 は しばしば 経済 を 刺激 する 重要 な 財政 政策 手段 と し て 使 わ れ る 。</td>
+      </tr>
+      <tr>
+        <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="LC44" class="blob-code blob-code-inner js-file-line">橋 が 圧力 で 落ち た 。</td>
+      </tr>
+      <tr>
+        <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="LC45" class="blob-code blob-code-inner js-file-line">私 は その 事実 を 十分 よく 知 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="LC46" class="blob-code blob-code-inner js-file-line">彼 の 後 を 継 ぐ だけ の 能力 の あ る 人物 を 見つけ る の は 容易 で は な い だ ろ う 。</td>
+      </tr>
+      <tr>
+        <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="LC47" class="blob-code blob-code-inner js-file-line">私 は 一 番 列車 に 間に合 う よう に 急 い だ 。</td>
+      </tr>
+      <tr>
+        <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="LC48" class="blob-code blob-code-inner js-file-line">私 は もはや 彼 の なまけ を 我慢 出来 な い 。</td>
+      </tr>
+      <tr>
+        <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="LC49" class="blob-code blob-code-inner js-file-line">彼女 は 叔母 に 似 て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="LC50" class="blob-code blob-code-inner js-file-line">彼 は い い 給料 を もら っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="LC51" class="blob-code blob-code-inner js-file-line">歌 を 歌 っ て い る 少年 は 私 の 弟 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="LC52" class="blob-code blob-code-inner js-file-line">彼女 は ベッド の 上 に うつ伏せ に 倒れ て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="LC53" class="blob-code blob-code-inner js-file-line">急 い で する 事 が あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="LC54" class="blob-code blob-code-inner js-file-line">私 は 、 ストライキ の ため に 、 旅行 を 中止 し な けれ ば な ら な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="LC55" class="blob-code blob-code-inner js-file-line">だれ で も が み な 正直 と は 限 ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="LC56" class="blob-code blob-code-inner js-file-line">もし 私 が 君 の 立場 なら 、 彼 を 手伝 っ て や る だ ろ う に 。</td>
+      </tr>
+      <tr>
+        <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="LC57" class="blob-code blob-code-inner js-file-line">早起き の 習慣 を 養 う よう に し なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="LC58" class="blob-code blob-code-inner js-file-line">君 に 会 っ た こと を 私 は 決して 忘れ ま せ ん 。</td>
+      </tr>
+      <tr>
+        <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="LC59" class="blob-code blob-code-inner js-file-line">カナダ へ 行 っ た こと が あ り ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="LC60" class="blob-code blob-code-inner js-file-line">バス の 前 の ほう は す い て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="LC61" class="blob-code blob-code-inner js-file-line">彼 は 出かけ た 先々 で 歓迎 さ れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="LC62" class="blob-code blob-code-inner js-file-line">彼 は 自分 が 何 を 話 し て い る か を 時々 忘れ て しま う 。</td>
+      </tr>
+      <tr>
+        <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="LC63" class="blob-code blob-code-inner js-file-line">彼女 は その 仕事 を する 気分 で は な い 。</td>
+      </tr>
+      <tr>
+        <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="LC64" class="blob-code blob-code-inner js-file-line">私 は 野球 が 好き だ 。</td>
+      </tr>
+      <tr>
+        <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="LC65" class="blob-code blob-code-inner js-file-line">その 名 の 人 は 学籍 簿 に 載 っ て ま せ ん 。</td>
+      </tr>
+      <tr>
+        <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
+        <td id="LC66" class="blob-code blob-code-inner js-file-line">収穫 が もっと 悪 く な れ ば 、 飢饉 が 起こ る か も 知れ な い 。</td>
+      </tr>
+      <tr>
+        <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
+        <td id="LC67" class="blob-code blob-code-inner js-file-line">父 は 私 が 彼 に 対 し て 失礼 な 言動 を と っ た とき 、 怒り で 顔 が 真っ赤 に な っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
+        <td id="LC68" class="blob-code blob-code-inner js-file-line">彼 は 山 の 頂上 に 立 っ て い ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
+        <td id="LC69" class="blob-code blob-code-inner js-file-line">私 たち みんな 自転 車 に 乗 る の が 好き で す 。</td>
+      </tr>
+      <tr>
+        <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
+        <td id="LC70" class="blob-code blob-code-inner js-file-line">赤ん坊 は よく 転 ぶ 。</td>
+      </tr>
+      <tr>
+        <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
+        <td id="LC71" class="blob-code blob-code-inner js-file-line">その 質問 は 難し すぎ て 答え られ な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
+        <td id="LC72" class="blob-code blob-code-inner js-file-line">彼女 は 教師 の よう に 見え る 。</td>
+      </tr>
+      <tr>
+        <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
+        <td id="LC73" class="blob-code blob-code-inner js-file-line">ジョーダン さん は 「 授業 に 出 て い な かっ た の で す か 」 と たずね た 。</td>
+      </tr>
+      <tr>
+        <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
+        <td id="LC74" class="blob-code blob-code-inner js-file-line">「 ほか に 何 か 要 り ま す か 」 「 それ だけ で 結構 で す 」</td>
+      </tr>
+      <tr>
+        <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
+        <td id="LC75" class="blob-code blob-code-inner js-file-line">気 苦労 が 彼 の 体 に 響 い た 。</td>
+      </tr>
+      <tr>
+        <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
+        <td id="LC76" class="blob-code blob-code-inner js-file-line">彼 は それ を 詳し く 説明 し だ し た 。</td>
+      </tr>
+      <tr>
+        <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
+        <td id="LC77" class="blob-code blob-code-inner js-file-line">「 元気 を 出 し なさ い 」 と 彼女 は 私 に 言 い ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
+        <td id="LC78" class="blob-code blob-code-inner js-file-line">本当 を 言 う と 、 コンピューター に は 詳し く な い の で す 。</td>
+      </tr>
+      <tr>
+        <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
+        <td id="LC79" class="blob-code blob-code-inner js-file-line">ワイン を もっと 冷や し た い 。</td>
+      </tr>
+      <tr>
+        <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
+        <td id="LC80" class="blob-code blob-code-inner js-file-line">彼女 は 機嫌 が 悪 い と い う の も 、 いつ も 地下 鉄 に 乗 り 遅れ 仕事 場 まで 歩 く 羽目 に な っ た から だ 。</td>
+      </tr>
+      <tr>
+        <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
+        <td id="LC81" class="blob-code blob-code-inner js-file-line">夕方 から 雨 だ って い っ て い た よ 。</td>
+      </tr>
+      <tr>
+        <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
+        <td id="LC82" class="blob-code blob-code-inner js-file-line">あす の 朝 まで に は 一面 の 銀 世界 に な っ て い る だ ろ う 。</td>
+      </tr>
+      <tr>
+        <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
+        <td id="LC83" class="blob-code blob-code-inner js-file-line">知 っ て い れ ば 教え て あげ た ん だ けど 。</td>
+      </tr>
+      <tr>
+        <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
+        <td id="LC84" class="blob-code blob-code-inner js-file-line">無知 は 幸福 。</td>
+      </tr>
+      <tr>
+        <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
+        <td id="LC85" class="blob-code blob-code-inner js-file-line">せっかく 弁護 士 の 資格 が あ る の に もったい な い 。</td>
+      </tr>
+      <tr>
+        <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
+        <td id="LC86" class="blob-code blob-code-inner js-file-line">少な い 収入 を でき る 限り いか し た い 。</td>
+      </tr>
+      <tr>
+        <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
+        <td id="LC87" class="blob-code blob-code-inner js-file-line">いつ か あなた を 訪問 し て も い い で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
+        <td id="LC88" class="blob-code blob-code-inner js-file-line">私 は ここ に とどま る べ き か ロンドン へ 行 く べ き か 分か ら な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
+        <td id="LC89" class="blob-code blob-code-inner js-file-line">ダン は よく お 母 さん に しか ら れ る 。</td>
+      </tr>
+      <tr>
+        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
+        <td id="LC90" class="blob-code blob-code-inner js-file-line">ジョージ は とても 話 好き だ 。</td>
+      </tr>
+      <tr>
+        <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
+        <td id="LC91" class="blob-code blob-code-inner js-file-line">システム が 作動 し な い 場合 が あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
+        <td id="LC92" class="blob-code blob-code-inner js-file-line">彼女 は 毎週 １ 回 映画 を 見 に 行 く 。</td>
+      </tr>
+      <tr>
+        <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
+        <td id="LC93" class="blob-code blob-code-inner js-file-line">彼 は とって も やさし い よ 。</td>
+      </tr>
+      <tr>
+        <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
+        <td id="LC94" class="blob-code blob-code-inner js-file-line">私 は ほとんど １８０ センチ で す 。</td>
+      </tr>
+      <tr>
+        <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
+        <td id="LC95" class="blob-code blob-code-inner js-file-line">彼 は 母親 に 似 て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
+        <td id="LC96" class="blob-code blob-code-inner js-file-line">東京 は だんぜん 日本 で 一番 大き い 都市 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
+        <td id="LC97" class="blob-code blob-code-inner js-file-line">出世 し た い の なら 、 努力 を おそれ て は な ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
+        <td id="LC98" class="blob-code blob-code-inner js-file-line">「 まだ 浅 い ね 。 足 とど く 」 「 結構 遠浅 だ な 。 よ つば も まだ 足 つ く だ ろ 」</td>
+      </tr>
+      <tr>
+        <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
+        <td id="LC99" class="blob-code blob-code-inner js-file-line">私 の お じい ちゃん は 私 が 大学 に 行 く こと を 望 ん で い る 。</td>
+      </tr>
+      <tr>
+        <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
+        <td id="LC100" class="blob-code blob-code-inner js-file-line">ラスベガス が い る と 時間 が 経 つ の を 忘れ る 。</td>
+      </tr>
+      <tr>
+        <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
+        <td id="LC101" class="blob-code blob-code-inner js-file-line">彼 は 非常 な 剣幕 で 私 を にらみ付け た 。</td>
+      </tr>
+      <tr>
+        <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
+        <td id="LC102" class="blob-code blob-code-inner js-file-line">間 の 垣根 が 恋 を いっそう 燃え立 た せ る 。</td>
+      </tr>
+      <tr>
+        <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
+        <td id="LC103" class="blob-code blob-code-inner js-file-line">キャロライン は すべて の お 金 を 洋服 に 使 う ほど 愚か で は な い 。</td>
+      </tr>
+      <tr>
+        <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
+        <td id="LC104" class="blob-code blob-code-inner js-file-line">彼 は 駐日 アメリカ 大使 に 命 じ られ た ばかり で す 。</td>
+      </tr>
+      <tr>
+        <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
+        <td id="LC105" class="blob-code blob-code-inner js-file-line">彼女 なら 当然 選 び そう な 人 と 彼女 は 結婚 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
+        <td id="LC106" class="blob-code blob-code-inner js-file-line">昨日 通り で 友人 に 会 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
+        <td id="LC107" class="blob-code blob-code-inner js-file-line">お 酒 を 飲 む と 影響 が 出 る もの だ 。</td>
+      </tr>
+      <tr>
+        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
+        <td id="LC108" class="blob-code blob-code-inner js-file-line">君 を 信頼 し て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
+        <td id="LC109" class="blob-code blob-code-inner js-file-line">我々 の 列車 は 時速 ２００ キロ で 走 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
+        <td id="LC110" class="blob-code blob-code-inner js-file-line">私 たち は 泣 い て い る の 。</td>
+      </tr>
+      <tr>
+        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
+        <td id="LC111" class="blob-code blob-code-inner js-file-line">彼女 は 息 を 飲 ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
+        <td id="LC112" class="blob-code blob-code-inner js-file-line">君 たち は 大人 に な る まで タバコ を 吸 っ て は いけ な い 。</td>
+      </tr>
+      <tr>
+        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
+        <td id="LC113" class="blob-code blob-code-inner js-file-line">彼 は たばこ を 一 日 一 本 に 減ら し て い っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
+        <td id="LC114" class="blob-code blob-code-inner js-file-line">貴殿 の 娘 さん は 麻薬 漬け で す 。</td>
+      </tr>
+      <tr>
+        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
+        <td id="LC115" class="blob-code blob-code-inner js-file-line">彼女 を その 任務 に 就け よう 。</td>
+      </tr>
+      <tr>
+        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
+        <td id="LC116" class="blob-code blob-code-inner js-file-line">ある 旅行 会社 が 我々 の 旅行 の 手配 を 全部 し て くれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
+        <td id="LC117" class="blob-code blob-code-inner js-file-line">彼女 が 息子 を 自慢 する の も もっとも だ 。</td>
+      </tr>
+      <tr>
+        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
+        <td id="LC118" class="blob-code blob-code-inner js-file-line">痛み が 右脚 に 走 り ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
+        <td id="LC119" class="blob-code blob-code-inner js-file-line">参加 者 の リスト は 次 の とおり で す 。</td>
+      </tr>
+      <tr>
+        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
+        <td id="LC120" class="blob-code blob-code-inner js-file-line">彼女 は 休日 に な る と よく 買い物 に 行 き ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
+        <td id="LC121" class="blob-code blob-code-inner js-file-line">昨日 の 午後 は ずっと 、 私 の 部屋 を 掃除 する の に 費や し た 。</td>
+      </tr>
+      <tr>
+        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
+        <td id="LC122" class="blob-code blob-code-inner js-file-line">その 機械 は いつ も どこ か 故障 ばかり し て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
+        <td id="LC123" class="blob-code blob-code-inner js-file-line">焼き肉 の 火 加減 を 見 なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
+        <td id="LC124" class="blob-code blob-code-inner js-file-line">彼女 に 結婚 し て くれ な い か と 言 っ たら 彼女 は 承知 し て くれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
+        <td id="LC125" class="blob-code blob-code-inner js-file-line">本当 の こと を おっしゃ っ て いただけ ま せ ん か 。</td>
+      </tr>
+      <tr>
+        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
+        <td id="LC126" class="blob-code blob-code-inner js-file-line">彼 の 父 は 今朝 息 を 引き取 り ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
+        <td id="LC127" class="blob-code blob-code-inner js-file-line">彼女 は 自殺 を し よう と し た 。</td>
+      </tr>
+      <tr>
+        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
+        <td id="LC128" class="blob-code blob-code-inner js-file-line">彼 は 森 で 迷 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
+        <td id="LC129" class="blob-code blob-code-inner js-file-line">妻 が 電話 し て き た ら 、 私 は 重要 な 会議 中 で 出 られ な い と 言 っ て くださ い 。</td>
+      </tr>
+      <tr>
+        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
+        <td id="LC130" class="blob-code blob-code-inner js-file-line">私 たち は 健康 に 有害 な 食品 を 知 ら ず に 食べ て い る 事 が よく あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
+        <td id="LC131" class="blob-code blob-code-inner js-file-line">料理 の レパートリー は 限 ら れ て る の 。</td>
+      </tr>
+      <tr>
+        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
+        <td id="LC132" class="blob-code blob-code-inner js-file-line">この 本 は 何 の 項目 に 入 り ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
+        <td id="LC133" class="blob-code blob-code-inner js-file-line">彼 は パリ 出会 っ た 女性 と 結婚 する 決心 を し た 。</td>
+      </tr>
+      <tr>
+        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
+        <td id="LC134" class="blob-code blob-code-inner js-file-line">彼 は 彼女 に うるさ く 質問 し て 困 ら せ た 。</td>
+      </tr>
+      <tr>
+        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
+        <td id="LC135" class="blob-code blob-code-inner js-file-line">最寄り の 地下 鉄 へ 行 く 道 を 教え て くれ ま せ ん か 。</td>
+      </tr>
+      <tr>
+        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
+        <td id="LC136" class="blob-code blob-code-inner js-file-line">彼 は 結局 は 一流 の 小説 家 で あ っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
+        <td id="LC137" class="blob-code blob-code-inner js-file-line">運転 者 は 交通 規則 を 守 ら ね ば な ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
+        <td id="LC138" class="blob-code blob-code-inner js-file-line">彼 は 政治 家 と い う より も むしろ 商人 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
+        <td id="LC139" class="blob-code blob-code-inner js-file-line">彼 は 私 の 提案 に 同意 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
+        <td id="LC140" class="blob-code blob-code-inner js-file-line">自分 の 考え を 僕 に 押しつけ る な 。</td>
+      </tr>
+      <tr>
+        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
+        <td id="LC141" class="blob-code blob-code-inner js-file-line">彼 は テニス を し た 。</td>
+      </tr>
+      <tr>
+        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
+        <td id="LC142" class="blob-code blob-code-inner js-file-line">薄汚 い 生まれ た 故郷 の 街 に 戻 っ て き た 。</td>
+      </tr>
+      <tr>
+        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
+        <td id="LC143" class="blob-code blob-code-inner js-file-line">車 は ガードレール に 衝突 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
+        <td id="LC144" class="blob-code blob-code-inner js-file-line">注意 し て い て も 事故 は いろいろ 起き て い ま す から ね 。</td>
+      </tr>
+      <tr>
+        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
+        <td id="LC145" class="blob-code blob-code-inner js-file-line">彼 の 教え子 の 中 で その 試験 に 合格 し た 者 は い な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
+        <td id="LC146" class="blob-code blob-code-inner js-file-line">私 の テープ レコーダー は 君 の アンプ に も つなげ られ る 。</td>
+      </tr>
+      <tr>
+        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
+        <td id="LC147" class="blob-code blob-code-inner js-file-line">彼 は 列車 事故 で けが を し た 。</td>
+      </tr>
+      <tr>
+        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
+        <td id="LC148" class="blob-code blob-code-inner js-file-line">バッター は 空振り の 三振 を し た 。</td>
+      </tr>
+      <tr>
+        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
+        <td id="LC149" class="blob-code blob-code-inner js-file-line">死 は 万 人 に 来る べ き もの 、 すべて 人 は 死 す べ き もの な り 。</td>
+      </tr>
+      <tr>
+        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
+        <td id="LC150" class="blob-code blob-code-inner js-file-line">今日 は 楽し かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
+        <td id="LC151" class="blob-code blob-code-inner js-file-line">彼 が 来 た とき は 私 は その 手紙 を 書 き 終え て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
+        <td id="LC152" class="blob-code blob-code-inner js-file-line">そして 、 ようやく その 警官 は 腕 を 下げ た 。</td>
+      </tr>
+      <tr>
+        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
+        <td id="LC153" class="blob-code blob-code-inner js-file-line">我々 は 何 も 食べ ず に 何 時間 も 働 き 続け た 。</td>
+      </tr>
+      <tr>
+        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
+        <td id="LC154" class="blob-code blob-code-inner js-file-line">私 達 は 、 自ら の 問題 に つ い て 話し合 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
+        <td id="LC155" class="blob-code blob-code-inner js-file-line">私 たち は とても 活発 な 討論 を し た 。</td>
+      </tr>
+      <tr>
+        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
+        <td id="LC156" class="blob-code blob-code-inner js-file-line">秋 より 春 の ほう が 好き だ 。</td>
+      </tr>
+      <tr>
+        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
+        <td id="LC157" class="blob-code blob-code-inner js-file-line">ここ から ホテル まで 徒歩 で 行 く に は 遠 すぎ ま す 。 タクシー に お 乗 り なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
+        <td id="LC158" class="blob-code blob-code-inner js-file-line">みんな いつ も トニー を ほめ る 。</td>
+      </tr>
+      <tr>
+        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
+        <td id="LC159" class="blob-code blob-code-inner js-file-line">後者 の 能力 は すべて 遺伝 に よ っ て 私 達 に 伝え られ る 。 つまり 、 親 から 受け つ ぐ 遺伝 子 を 通 し て 私 たち は そう し た 能力 を 受け取 る の で あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
+        <td id="LC160" class="blob-code blob-code-inner js-file-line">言い換え れ ば 、 私 は 彼 と 働 き た く な い 。</td>
+      </tr>
+      <tr>
+        <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
+        <td id="LC161" class="blob-code blob-code-inner js-file-line">マイク は なん と か その スーツケース を 一人 で 運 ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L162" class="blob-num js-line-number" data-line-number="162"></td>
+        <td id="LC162" class="blob-code blob-code-inner js-file-line">私 たち は スミス さん が サイン し た 領収 書 が 必要 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L163" class="blob-num js-line-number" data-line-number="163"></td>
+        <td id="LC163" class="blob-code blob-code-inner js-file-line">彼 等 は トランプ を し な い か と 私 を 誘 っ て くれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L164" class="blob-num js-line-number" data-line-number="164"></td>
+        <td id="LC164" class="blob-code blob-code-inner js-file-line">私 たち が 必要 と する 情報 は 必ず しも 手 に 入 ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L165" class="blob-num js-line-number" data-line-number="165"></td>
+        <td id="LC165" class="blob-code blob-code-inner js-file-line">老 婦人 が 渡 る の を 助け た 。</td>
+      </tr>
+      <tr>
+        <td id="L166" class="blob-num js-line-number" data-line-number="166"></td>
+        <td id="LC166" class="blob-code blob-code-inner js-file-line">何 か 、 全部 、 こじつけ って 感じ が する ん だ けど ・ ・ ・ 。</td>
+      </tr>
+      <tr>
+        <td id="L167" class="blob-num js-line-number" data-line-number="167"></td>
+        <td id="LC167" class="blob-code blob-code-inner js-file-line">彼 に 財産 管理 を 任せ た 。</td>
+      </tr>
+      <tr>
+        <td id="L168" class="blob-num js-line-number" data-line-number="168"></td>
+        <td id="LC168" class="blob-code blob-code-inner js-file-line">旅行 を 計画 する 場合 は 、 家族 全員 の 希望 を 考慮 す べ き だ 。</td>
+      </tr>
+      <tr>
+        <td id="L169" class="blob-num js-line-number" data-line-number="169"></td>
+        <td id="LC169" class="blob-code blob-code-inner js-file-line">彼 は 中一 の 時 学校 に 来 な く な っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L170" class="blob-num js-line-number" data-line-number="170"></td>
+        <td id="LC170" class="blob-code blob-code-inner js-file-line">クリスマス は 新し い おもちゃ を うりだ す い い 機会 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L171" class="blob-num js-line-number" data-line-number="171"></td>
+        <td id="LC171" class="blob-code blob-code-inner js-file-line">私 は 午前 中 ずっと 手紙 を 書 い て い ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L172" class="blob-num js-line-number" data-line-number="172"></td>
+        <td id="LC172" class="blob-code blob-code-inner js-file-line">その ホテル は 山 の ふもと に あ り ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L173" class="blob-num js-line-number" data-line-number="173"></td>
+        <td id="LC173" class="blob-code blob-code-inner js-file-line">明日 は 彼 の ところ に 泊ま る つもり だ 。</td>
+      </tr>
+      <tr>
+        <td id="L174" class="blob-num js-line-number" data-line-number="174"></td>
+        <td id="LC174" class="blob-code blob-code-inner js-file-line">今 から ２５ 年 後 に は 、 就業 者 ２人 に つ き 退職 者 １人 の 割合 に な る だ ろ う 。</td>
+      </tr>
+      <tr>
+        <td id="L175" class="blob-num js-line-number" data-line-number="175"></td>
+        <td id="LC175" class="blob-code blob-code-inner js-file-line">彼女 は 幸せ で あ っ た よう だ 。</td>
+      </tr>
+      <tr>
+        <td id="L176" class="blob-num js-line-number" data-line-number="176"></td>
+        <td id="LC176" class="blob-code blob-code-inner js-file-line">日本 の 主要 作物 は 米 で あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L177" class="blob-num js-line-number" data-line-number="177"></td>
+        <td id="LC177" class="blob-code blob-code-inner js-file-line">患者 と 名 の つく すべて の 人 。</td>
+      </tr>
+      <tr>
+        <td id="L178" class="blob-num js-line-number" data-line-number="178"></td>
+        <td id="LC178" class="blob-code blob-code-inner js-file-line">私 は 誰 な の だ ろ う か 。</td>
+      </tr>
+      <tr>
+        <td id="L179" class="blob-num js-line-number" data-line-number="179"></td>
+        <td id="LC179" class="blob-code blob-code-inner js-file-line">いつ も の 場所 で 待 っ て い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L180" class="blob-num js-line-number" data-line-number="180"></td>
+        <td id="LC180" class="blob-code blob-code-inner js-file-line">その 村 と 我々 の 町 は 橋 で つなが っ て い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L181" class="blob-num js-line-number" data-line-number="181"></td>
+        <td id="LC181" class="blob-code blob-code-inner js-file-line">十 八 禁 な の で 要 注意 ！</td>
+      </tr>
+      <tr>
+        <td id="L182" class="blob-num js-line-number" data-line-number="182"></td>
+        <td id="LC182" class="blob-code blob-code-inner js-file-line">私 は 明日 アメリカ へ 出発 する 予定 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L183" class="blob-num js-line-number" data-line-number="183"></td>
+        <td id="LC183" class="blob-code blob-code-inner js-file-line">ギリシャ 語 は 覚え にく い 。</td>
+      </tr>
+      <tr>
+        <td id="L184" class="blob-num js-line-number" data-line-number="184"></td>
+        <td id="LC184" class="blob-code blob-code-inner js-file-line">私 は 音楽 の 勉強 に オーストリア へ 行 き た い 。</td>
+      </tr>
+      <tr>
+        <td id="L185" class="blob-num js-line-number" data-line-number="185"></td>
+        <td id="LC185" class="blob-code blob-code-inner js-file-line">ボーナス を もら っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L186" class="blob-num js-line-number" data-line-number="186"></td>
+        <td id="LC186" class="blob-code blob-code-inner js-file-line">私 は 私 の ジョーク を 聞 い て 笑 う 時 の 彼女 が 好き だ 。</td>
+      </tr>
+      <tr>
+        <td id="L187" class="blob-num js-line-number" data-line-number="187"></td>
+        <td id="LC187" class="blob-code blob-code-inner js-file-line">自分 の 名前 が 後ろ から 呼 ば れ る の が きこえ た 。</td>
+      </tr>
+      <tr>
+        <td id="L188" class="blob-num js-line-number" data-line-number="188"></td>
+        <td id="LC188" class="blob-code blob-code-inner js-file-line">彼女 は 審美 眼 を 持 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L189" class="blob-num js-line-number" data-line-number="189"></td>
+        <td id="LC189" class="blob-code blob-code-inner js-file-line">その 大きな 醜 い 木 が その 家 の 美観 を 損ね て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L190" class="blob-num js-line-number" data-line-number="190"></td>
+        <td id="LC190" class="blob-code blob-code-inner js-file-line">彼女 は １ 週間 前 に 病気 に な っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L191" class="blob-num js-line-number" data-line-number="191"></td>
+        <td id="LC191" class="blob-code blob-code-inner js-file-line">彼 は ざっくばらん な 人柄 な の で 話 し やす い 。</td>
+      </tr>
+      <tr>
+        <td id="L192" class="blob-num js-line-number" data-line-number="192"></td>
+        <td id="LC192" class="blob-code blob-code-inner js-file-line">庭 は 柵 で 小道 と 仕切 ら れ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L193" class="blob-num js-line-number" data-line-number="193"></td>
+        <td id="LC193" class="blob-code blob-code-inner js-file-line">君 の 写真 が 欲し い の で す が 。</td>
+      </tr>
+      <tr>
+        <td id="L194" class="blob-num js-line-number" data-line-number="194"></td>
+        <td id="LC194" class="blob-code blob-code-inner js-file-line">彼 が 仕事 を 辞め る の も もっとも だ 。</td>
+      </tr>
+      <tr>
+        <td id="L195" class="blob-num js-line-number" data-line-number="195"></td>
+        <td id="LC195" class="blob-code blob-code-inner js-file-line">その 本 を もと あ っ た 所 へ 置 き なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L196" class="blob-num js-line-number" data-line-number="196"></td>
+        <td id="LC196" class="blob-code blob-code-inner js-file-line">この 写真 を 見 る と 、 私 は 必ず 子供 の ころ を 思い出 す 。</td>
+      </tr>
+      <tr>
+        <td id="L197" class="blob-num js-line-number" data-line-number="197"></td>
+        <td id="LC197" class="blob-code blob-code-inner js-file-line">横浜 駅 へ 行 く の に は この 道 で い い の で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L198" class="blob-num js-line-number" data-line-number="198"></td>
+        <td id="LC198" class="blob-code blob-code-inner js-file-line">彼 は スキー を し て い る とき に 、 転 ん で 腕 を 折 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L199" class="blob-num js-line-number" data-line-number="199"></td>
+        <td id="LC199" class="blob-code blob-code-inner js-file-line">彼女 は 新車 を 見せ て くれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L200" class="blob-num js-line-number" data-line-number="200"></td>
+        <td id="LC200" class="blob-code blob-code-inner js-file-line">マスタード を 別 に 持 っ て き て くださ い 。</td>
+      </tr>
+      <tr>
+        <td id="L201" class="blob-num js-line-number" data-line-number="201"></td>
+        <td id="LC201" class="blob-code blob-code-inner js-file-line">何 が 起こ ろ う と も 、 その 覚悟 は でき て い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L202" class="blob-num js-line-number" data-line-number="202"></td>
+        <td id="LC202" class="blob-code blob-code-inner js-file-line">彼 は 北海道 に い た こと が あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L203" class="blob-num js-line-number" data-line-number="203"></td>
+        <td id="LC203" class="blob-code blob-code-inner js-file-line">彼 の 顔つき や 態度 に は 軽蔑 の 気持ち が 表れ て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L204" class="blob-num js-line-number" data-line-number="204"></td>
+        <td id="LC204" class="blob-code blob-code-inner js-file-line">ビル 以外 は みな 間に合 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L205" class="blob-num js-line-number" data-line-number="205"></td>
+        <td id="LC205" class="blob-code blob-code-inner js-file-line">たいてい の 親 は 自分 の 子供 の 将来 が 気 に な る もの で す 。</td>
+      </tr>
+      <tr>
+        <td id="L206" class="blob-num js-line-number" data-line-number="206"></td>
+        <td id="LC206" class="blob-code blob-code-inner js-file-line">そんな 事 でき な い の あなた 知 っ て で しょ う 。</td>
+      </tr>
+      <tr>
+        <td id="L207" class="blob-num js-line-number" data-line-number="207"></td>
+        <td id="LC207" class="blob-code blob-code-inner js-file-line">ある 日 の こと 、 警察 が 娼婦 の 集団 を 手入れ し た 。 少女 も その 集団 の 一員 だっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L208" class="blob-num js-line-number" data-line-number="208"></td>
+        <td id="LC208" class="blob-code blob-code-inner js-file-line">どちら の ご 出身 で す か ？</td>
+      </tr>
+      <tr>
+        <td id="L209" class="blob-num js-line-number" data-line-number="209"></td>
+        <td id="LC209" class="blob-code blob-code-inner js-file-line">それ で 形勢 が 変わ っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L210" class="blob-num js-line-number" data-line-number="210"></td>
+        <td id="LC210" class="blob-code blob-code-inner js-file-line">私 は 背中 が 少し 痛 い 。</td>
+      </tr>
+      <tr>
+        <td id="L211" class="blob-num js-line-number" data-line-number="211"></td>
+        <td id="LC211" class="blob-code blob-code-inner js-file-line">父 の 成功 は 私 に 何 の 価値 も 無 い 。</td>
+      </tr>
+      <tr>
+        <td id="L212" class="blob-num js-line-number" data-line-number="212"></td>
+        <td id="LC212" class="blob-code blob-code-inner js-file-line">私 は 空港 の 写真 を 持 っ て い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L213" class="blob-num js-line-number" data-line-number="213"></td>
+        <td id="LC213" class="blob-code blob-code-inner js-file-line">君 は 何 を する つもり な の 。</td>
+      </tr>
+      <tr>
+        <td id="L214" class="blob-num js-line-number" data-line-number="214"></td>
+        <td id="LC214" class="blob-code blob-code-inner js-file-line">これ と あれ は 同じ 長 さ で す 。</td>
+      </tr>
+      <tr>
+        <td id="L215" class="blob-num js-line-number" data-line-number="215"></td>
+        <td id="LC215" class="blob-code blob-code-inner js-file-line">私 は 更 に ５０ ページ 読 ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L216" class="blob-num js-line-number" data-line-number="216"></td>
+        <td id="LC216" class="blob-code blob-code-inner js-file-line">その 語 の 綴り を 間違 っ て 、 彼 は コンテスト に 失格 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L217" class="blob-num js-line-number" data-line-number="217"></td>
+        <td id="LC217" class="blob-code blob-code-inner js-file-line">数学 は 私 が 最も 勉強 し た く な い 教科 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L218" class="blob-num js-line-number" data-line-number="218"></td>
+        <td id="LC218" class="blob-code blob-code-inner js-file-line">彼 は 賢明 に 行動 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L219" class="blob-num js-line-number" data-line-number="219"></td>
+        <td id="LC219" class="blob-code blob-code-inner js-file-line">私 は 彼 を あっ と 言 わ せ て や り た い 。</td>
+      </tr>
+      <tr>
+        <td id="L220" class="blob-num js-line-number" data-line-number="220"></td>
+        <td id="LC220" class="blob-code blob-code-inner js-file-line">冷た い 食事 は 、 避け て くださ い 。</td>
+      </tr>
+      <tr>
+        <td id="L221" class="blob-num js-line-number" data-line-number="221"></td>
+        <td id="LC221" class="blob-code blob-code-inner js-file-line">彼 は それ を 笑 わ ず に い られ な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L222" class="blob-num js-line-number" data-line-number="222"></td>
+        <td id="LC222" class="blob-code blob-code-inner js-file-line">グズグズ し て な い で さっさと 行動 しろ ！</td>
+      </tr>
+      <tr>
+        <td id="L223" class="blob-num js-line-number" data-line-number="223"></td>
+        <td id="LC223" class="blob-code blob-code-inner js-file-line">日本 企業 は 全て の 大陸 に 工場 を 設立 し て い る し 、 日本 の 銀行 は 世界 の 主要 な 経済 計画 の 大国 財政 的 な 援助 を し て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L224" class="blob-num js-line-number" data-line-number="224"></td>
+        <td id="LC224" class="blob-code blob-code-inner js-file-line">やっと 帰 っ て き た ぞ ！</td>
+      </tr>
+      <tr>
+        <td id="L225" class="blob-num js-line-number" data-line-number="225"></td>
+        <td id="LC225" class="blob-code blob-code-inner js-file-line">春 に は すべて の もの が 明る く 見え る 。</td>
+      </tr>
+      <tr>
+        <td id="L226" class="blob-num js-line-number" data-line-number="226"></td>
+        <td id="LC226" class="blob-code blob-code-inner js-file-line">美由紀 は カメラ を 持 っ て い る 、 しかし 彼女 は それ が 好き で な い 。</td>
+      </tr>
+      <tr>
+        <td id="L227" class="blob-num js-line-number" data-line-number="227"></td>
+        <td id="LC227" class="blob-code blob-code-inner js-file-line">ここ から 一番 近 い 薬局 は どこ で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L228" class="blob-num js-line-number" data-line-number="228"></td>
+        <td id="LC228" class="blob-code blob-code-inner js-file-line">それ は 的外れ だ 。</td>
+      </tr>
+      <tr>
+        <td id="L229" class="blob-num js-line-number" data-line-number="229"></td>
+        <td id="LC229" class="blob-code blob-code-inner js-file-line">バス を どの くらい お 待 ち で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L230" class="blob-num js-line-number" data-line-number="230"></td>
+        <td id="LC230" class="blob-code blob-code-inner js-file-line">彼 は 突然 わっと 泣 き 出 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L231" class="blob-num js-line-number" data-line-number="231"></td>
+        <td id="LC231" class="blob-code blob-code-inner js-file-line">トーマス は 事故 の ため に 仕事 を やり遂げ られ な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L232" class="blob-num js-line-number" data-line-number="232"></td>
+        <td id="LC232" class="blob-code blob-code-inner js-file-line">彼 は 我々 から 離れ て 立 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L233" class="blob-num js-line-number" data-line-number="233"></td>
+        <td id="LC233" class="blob-code blob-code-inner js-file-line">彼 は 時々 出張 する こと は 別 と し て あまり 旅 を し な い 。</td>
+      </tr>
+      <tr>
+        <td id="L234" class="blob-num js-line-number" data-line-number="234"></td>
+        <td id="LC234" class="blob-code blob-code-inner js-file-line">彼 は 体 を 心配 し て い る 様子 だっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L235" class="blob-num js-line-number" data-line-number="235"></td>
+        <td id="LC235" class="blob-code blob-code-inner js-file-line">彼女 は 胸 を どきどき さ せ て 、 その 手紙 を 読 ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L236" class="blob-num js-line-number" data-line-number="236"></td>
+        <td id="LC236" class="blob-code blob-code-inner js-file-line">私 も 伊藤 さん に お 目 に かか れ て 光栄 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L237" class="blob-num js-line-number" data-line-number="237"></td>
+        <td id="LC237" class="blob-code blob-code-inner js-file-line">彼 は こっそり ささや い た 。</td>
+      </tr>
+      <tr>
+        <td id="L238" class="blob-num js-line-number" data-line-number="238"></td>
+        <td id="LC238" class="blob-code blob-code-inner js-file-line">あなた は 正し い こと が でき る と 信 じ て い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L239" class="blob-num js-line-number" data-line-number="239"></td>
+        <td id="LC239" class="blob-code blob-code-inner js-file-line">私 は 君 たち 兄弟 が テレビ に 出 て い て ビックリ し た 。</td>
+      </tr>
+      <tr>
+        <td id="L240" class="blob-num js-line-number" data-line-number="240"></td>
+        <td id="LC240" class="blob-code blob-code-inner js-file-line">ちょっと 失礼 し て よ い で しょ う か 。</td>
+      </tr>
+      <tr>
+        <td id="L241" class="blob-num js-line-number" data-line-number="241"></td>
+        <td id="LC241" class="blob-code blob-code-inner js-file-line">どうぞ 話 を 続け て 下さ い 。</td>
+      </tr>
+      <tr>
+        <td id="L242" class="blob-num js-line-number" data-line-number="242"></td>
+        <td id="LC242" class="blob-code blob-code-inner js-file-line">彼 ら は 幼児 の 死亡 率 の 低 さ は 医学 の 進歩 の ゆえ と 考え た 。</td>
+      </tr>
+      <tr>
+        <td id="L243" class="blob-num js-line-number" data-line-number="243"></td>
+        <td id="LC243" class="blob-code blob-code-inner js-file-line">深酒 は 体 に よ く な い 。</td>
+      </tr>
+      <tr>
+        <td id="L244" class="blob-num js-line-number" data-line-number="244"></td>
+        <td id="LC244" class="blob-code blob-code-inner js-file-line">彼 は 米 文学 に 精通 し て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L245" class="blob-num js-line-number" data-line-number="245"></td>
+        <td id="LC245" class="blob-code blob-code-inner js-file-line">人々 は 陰 で 彼 を 嘲笑 し た もの だっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L246" class="blob-num js-line-number" data-line-number="246"></td>
+        <td id="LC246" class="blob-code blob-code-inner js-file-line">彼 ら は 権限 を 剥奪 さ れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L247" class="blob-num js-line-number" data-line-number="247"></td>
+        <td id="LC247" class="blob-code blob-code-inner js-file-line">私 は 口 が きけ な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L248" class="blob-num js-line-number" data-line-number="248"></td>
+        <td id="LC248" class="blob-code blob-code-inner js-file-line">君 は 僕 の こと を 言 っ て い る の か 。</td>
+      </tr>
+      <tr>
+        <td id="L249" class="blob-num js-line-number" data-line-number="249"></td>
+        <td id="LC249" class="blob-code blob-code-inner js-file-line">彼女 が 部屋 に は い っ た とき 、 ささやき が 聞こえ た 。</td>
+      </tr>
+      <tr>
+        <td id="L250" class="blob-num js-line-number" data-line-number="250"></td>
+        <td id="LC250" class="blob-code blob-code-inner js-file-line">これ は 世界 の どの 橋 より も 長 い 。</td>
+      </tr>
+      <tr>
+        <td id="L251" class="blob-num js-line-number" data-line-number="251"></td>
+        <td id="LC251" class="blob-code blob-code-inner js-file-line">我々 は お 互い に 意見 が 一致 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L252" class="blob-num js-line-number" data-line-number="252"></td>
+        <td id="LC252" class="blob-code blob-code-inner js-file-line">どっち が どっち な の か 分か ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L253" class="blob-num js-line-number" data-line-number="253"></td>
+        <td id="LC253" class="blob-code blob-code-inner js-file-line">パティー は 利口 な 学生 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L254" class="blob-num js-line-number" data-line-number="254"></td>
+        <td id="LC254" class="blob-code blob-code-inner js-file-line">クリスティー の 推理 小説 は 断然 面白 い 。</td>
+      </tr>
+      <tr>
+        <td id="L255" class="blob-num js-line-number" data-line-number="255"></td>
+        <td id="LC255" class="blob-code blob-code-inner js-file-line">昨年 は 雨 が 多 かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L256" class="blob-num js-line-number" data-line-number="256"></td>
+        <td id="LC256" class="blob-code blob-code-inner js-file-line">ゆうべ 地震 を かん じ ま し た か 。</td>
+      </tr>
+      <tr>
+        <td id="L257" class="blob-num js-line-number" data-line-number="257"></td>
+        <td id="LC257" class="blob-code blob-code-inner js-file-line">気持ち は よく 分か る よ 。</td>
+      </tr>
+      <tr>
+        <td id="L258" class="blob-num js-line-number" data-line-number="258"></td>
+        <td id="LC258" class="blob-code blob-code-inner js-file-line">彼 は 背 が 高 すぎ て 、 この 部屋 で は まっすぐ に 立て な い 。</td>
+      </tr>
+      <tr>
+        <td id="L259" class="blob-num js-line-number" data-line-number="259"></td>
+        <td id="LC259" class="blob-code blob-code-inner js-file-line">啓介 さん は 、 この お 屋敷 で 、 ずっと お 勉強 し て い る ん で す 。 いわゆる ホーム スクーリング と い う 形 で す ね 。</td>
+      </tr>
+      <tr>
+        <td id="L260" class="blob-num js-line-number" data-line-number="260"></td>
+        <td id="LC260" class="blob-code blob-code-inner js-file-line">猟犬 は 熊 を 必死 に な っ て 追いかけ て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L261" class="blob-num js-line-number" data-line-number="261"></td>
+        <td id="LC261" class="blob-code blob-code-inner js-file-line">人 は 互い の 家 を 詳し く 調べ る の が 大好き だ 。</td>
+      </tr>
+      <tr>
+        <td id="L262" class="blob-num js-line-number" data-line-number="262"></td>
+        <td id="LC262" class="blob-code blob-code-inner js-file-line">私 は 成績 を 上げ る よう 努力 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L263" class="blob-num js-line-number" data-line-number="263"></td>
+        <td id="LC263" class="blob-code blob-code-inner js-file-line">彼 は 自分 の 悪評 を 一笑 に 付 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L264" class="blob-num js-line-number" data-line-number="264"></td>
+        <td id="LC264" class="blob-code blob-code-inner js-file-line">彼 は 私 に 長 い 物語 を 話 し て くれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L265" class="blob-num js-line-number" data-line-number="265"></td>
+        <td id="LC265" class="blob-code blob-code-inner js-file-line">寒 く な り さえ し な けれ ば い い の で す 。</td>
+      </tr>
+      <tr>
+        <td id="L266" class="blob-num js-line-number" data-line-number="266"></td>
+        <td id="LC266" class="blob-code blob-code-inner js-file-line">私 は その しきたり を よく 知 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L267" class="blob-num js-line-number" data-line-number="267"></td>
+        <td id="LC267" class="blob-code blob-code-inner js-file-line">その 少年 は 自分 の 名前 さえ 書 く こと が でき な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L268" class="blob-num js-line-number" data-line-number="268"></td>
+        <td id="LC268" class="blob-code blob-code-inner js-file-line">今日 で は ７０ 歳 以上 まで 生き る 人 は 多 い 。</td>
+      </tr>
+      <tr>
+        <td id="L269" class="blob-num js-line-number" data-line-number="269"></td>
+        <td id="LC269" class="blob-code blob-code-inner js-file-line">彼女 の 美し い 服 が 私 の 注意 を 引 い た 。</td>
+      </tr>
+      <tr>
+        <td id="L270" class="blob-num js-line-number" data-line-number="270"></td>
+        <td id="LC270" class="blob-code blob-code-inner js-file-line">朝食 後 、 出発 し ま しょ う 。</td>
+      </tr>
+      <tr>
+        <td id="L271" class="blob-num js-line-number" data-line-number="271"></td>
+        <td id="LC271" class="blob-code blob-code-inner js-file-line">私 は ときどき 仕事 を やめ た い 気 が する 。</td>
+      </tr>
+      <tr>
+        <td id="L272" class="blob-num js-line-number" data-line-number="272"></td>
+        <td id="LC272" class="blob-code blob-code-inner js-file-line">結果 は どう な り ま し た か 。</td>
+      </tr>
+      <tr>
+        <td id="L273" class="blob-num js-line-number" data-line-number="273"></td>
+        <td id="LC273" class="blob-code blob-code-inner js-file-line">あなた は 私 たち の 誰 から も 信頼 さ れ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L274" class="blob-num js-line-number" data-line-number="274"></td>
+        <td id="LC274" class="blob-code blob-code-inner js-file-line">その 報告 書 から １０ 代 の 多く の 子供 が アルコール 中毒 に かか っ て い る こと が 分か っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L275" class="blob-num js-line-number" data-line-number="275"></td>
+        <td id="LC275" class="blob-code blob-code-inner js-file-line">彼 は シカゴ に 飛 ん だ 。 そして そこ で たまたま あ る 友人 に 会 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L276" class="blob-num js-line-number" data-line-number="276"></td>
+        <td id="LC276" class="blob-code blob-code-inner js-file-line">私 を 一人 に し て お い て くださ い 。</td>
+      </tr>
+      <tr>
+        <td id="L277" class="blob-num js-line-number" data-line-number="277"></td>
+        <td id="LC277" class="blob-code blob-code-inner js-file-line">田森 は 、 １９４５ 年 すなわち 第 二 次 世界 大戦 が 終わ っ た 年 に 生まれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L278" class="blob-num js-line-number" data-line-number="278"></td>
+        <td id="LC278" class="blob-code blob-code-inner js-file-line">都会 で は 泥棒 に 気 を つけ な さ い 。</td>
+      </tr>
+      <tr>
+        <td id="L279" class="blob-num js-line-number" data-line-number="279"></td>
+        <td id="LC279" class="blob-code blob-code-inner js-file-line">彼 は ちょっと し た こと で すぐ 怒 る 。</td>
+      </tr>
+      <tr>
+        <td id="L280" class="blob-num js-line-number" data-line-number="280"></td>
+        <td id="LC280" class="blob-code blob-code-inner js-file-line">彼 は 、 家 まで ずっと 歩 い た 。</td>
+      </tr>
+      <tr>
+        <td id="L281" class="blob-num js-line-number" data-line-number="281"></td>
+        <td id="LC281" class="blob-code blob-code-inner js-file-line">彼女 の 親切 な 行為 に 私 は 強 く 心 を 動か さ れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L282" class="blob-num js-line-number" data-line-number="282"></td>
+        <td id="LC282" class="blob-code blob-code-inner js-file-line">女 は 女 で あ る こと を 、 男 が 男 で あ る こと を 喜 ぶ よう に 喜 ぶ べ き で あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L283" class="blob-num js-line-number" data-line-number="283"></td>
+        <td id="LC283" class="blob-code blob-code-inner js-file-line">すぐ に 出来 ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L284" class="blob-num js-line-number" data-line-number="284"></td>
+        <td id="LC284" class="blob-code blob-code-inner js-file-line">きみ が もど っ て 来る ころ に は 、 ぼく は 出かけ て しま っ て い る よ 。</td>
+      </tr>
+      <tr>
+        <td id="L285" class="blob-num js-line-number" data-line-number="285"></td>
+        <td id="LC285" class="blob-code blob-code-inner js-file-line">この 前 中国 へ 行 っ た とき 、 上海 を 訪れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L286" class="blob-num js-line-number" data-line-number="286"></td>
+        <td id="LC286" class="blob-code blob-code-inner js-file-line">ライラック の 花 を 見 る に は ２、３ 週間 待 た ね ば な ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L287" class="blob-num js-line-number" data-line-number="287"></td>
+        <td id="LC287" class="blob-code blob-code-inner js-file-line">夜 が 明け 始め た 。</td>
+      </tr>
+      <tr>
+        <td id="L288" class="blob-num js-line-number" data-line-number="288"></td>
+        <td id="LC288" class="blob-code blob-code-inner js-file-line">けっきょく 、 民主 主義 が 勝利 を 得 る だ ろ う 。</td>
+      </tr>
+      <tr>
+        <td id="L289" class="blob-num js-line-number" data-line-number="289"></td>
+        <td id="LC289" class="blob-code blob-code-inner js-file-line">両国 は 条約 を 取り決め た 。</td>
+      </tr>
+      <tr>
+        <td id="L290" class="blob-num js-line-number" data-line-number="290"></td>
+        <td id="LC290" class="blob-code blob-code-inner js-file-line">私 は 今 食べ る 気 に な ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L291" class="blob-num js-line-number" data-line-number="291"></td>
+        <td id="LC291" class="blob-code blob-code-inner js-file-line">何 か 他 に 僕 に し て 欲し い こと は な い で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L292" class="blob-num js-line-number" data-line-number="292"></td>
+        <td id="LC292" class="blob-code blob-code-inner js-file-line">彼 は 切手 を 私 の 二 倍 集め て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L293" class="blob-num js-line-number" data-line-number="293"></td>
+        <td id="LC293" class="blob-code blob-code-inner js-file-line">後 に な っ て 、 クリス は 自分 の 行い を 恥ずかし く 思 い 、 彼女 に 謝 る と 、 ベス は 彼 を 許 し て くれ ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L294" class="blob-num js-line-number" data-line-number="294"></td>
+        <td id="LC294" class="blob-code blob-code-inner js-file-line">決して カンニング を し て は いけ ま せ ん 。</td>
+      </tr>
+      <tr>
+        <td id="L295" class="blob-num js-line-number" data-line-number="295"></td>
+        <td id="LC295" class="blob-code blob-code-inner js-file-line">少年 は ラジオ を 聞き ながら 横 に な っ て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L296" class="blob-num js-line-number" data-line-number="296"></td>
+        <td id="LC296" class="blob-code blob-code-inner js-file-line">レインボウ ブリッジ の 長 さ は どの くらい で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L297" class="blob-num js-line-number" data-line-number="297"></td>
+        <td id="LC297" class="blob-code blob-code-inner js-file-line">あいつ は 馬鹿 だ から 、 怖 い も の 知 ら ず だ 。</td>
+      </tr>
+      <tr>
+        <td id="L298" class="blob-num js-line-number" data-line-number="298"></td>
+        <td id="LC298" class="blob-code blob-code-inner js-file-line">彼女 は 強制 的 に 私 を 一緒 に 連れ出 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L299" class="blob-num js-line-number" data-line-number="299"></td>
+        <td id="LC299" class="blob-code blob-code-inner js-file-line">私 は 誰 か が 彼女 の 代わり を する 人 を 探 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L300" class="blob-num js-line-number" data-line-number="300"></td>
+        <td id="LC300" class="blob-code blob-code-inner js-file-line">時間 通り に は 着け な い よ 。</td>
+      </tr>
+      <tr>
+        <td id="L301" class="blob-num js-line-number" data-line-number="301"></td>
+        <td id="LC301" class="blob-code blob-code-inner js-file-line">ケネディ 氏 は 、 私 達 の ミス を 指摘 し ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L302" class="blob-num js-line-number" data-line-number="302"></td>
+        <td id="LC302" class="blob-code blob-code-inner js-file-line">彼 は 庭 いじり を する よう に な っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L303" class="blob-num js-line-number" data-line-number="303"></td>
+        <td id="LC303" class="blob-code blob-code-inner js-file-line">英語 を 勉強 し な けれ ば な ら な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L304" class="blob-num js-line-number" data-line-number="304"></td>
+        <td id="LC304" class="blob-code blob-code-inner js-file-line">そこ に は 消え る こと の な い 薄明かり が あ っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L305" class="blob-num js-line-number" data-line-number="305"></td>
+        <td id="LC305" class="blob-code blob-code-inner js-file-line">私 は あなた に あえ て うれし い 。</td>
+      </tr>
+      <tr>
+        <td id="L306" class="blob-num js-line-number" data-line-number="306"></td>
+        <td id="LC306" class="blob-code blob-code-inner js-file-line">漁師 は 釣り糸 を 水中 に 投げ た 。</td>
+      </tr>
+      <tr>
+        <td id="L307" class="blob-num js-line-number" data-line-number="307"></td>
+        <td id="LC307" class="blob-code blob-code-inner js-file-line">今朝 は 昨日 の 朝 より も ずっと 涼し かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L308" class="blob-num js-line-number" data-line-number="308"></td>
+        <td id="LC308" class="blob-code blob-code-inner js-file-line">ビル は 優秀 な 科学 者 に な る 素質 を 持 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L309" class="blob-num js-line-number" data-line-number="309"></td>
+        <td id="LC309" class="blob-code blob-code-inner js-file-line">彼女 は 日本 で 育 っ た に も かかわ ら ず 、 英語 を 自由 に 使 い こな す 。</td>
+      </tr>
+      <tr>
+        <td id="L310" class="blob-num js-line-number" data-line-number="310"></td>
+        <td id="LC310" class="blob-code blob-code-inner js-file-line">あの 人 は 顔 は 知 ら な い が 名前 は 知 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L311" class="blob-num js-line-number" data-line-number="311"></td>
+        <td id="LC311" class="blob-code blob-code-inner js-file-line">ジェーン は 私 たち の 決定 に 反対 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L312" class="blob-num js-line-number" data-line-number="312"></td>
+        <td id="LC312" class="blob-code blob-code-inner js-file-line">彼 は 小さな 鶏舎 を 持 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L313" class="blob-num js-line-number" data-line-number="313"></td>
+        <td id="LC313" class="blob-code blob-code-inner js-file-line">結婚 前 は 両眼 を 大き く 見開 い て おれ 、 その 後 は 、 その 半ば を 閉じ よ 。</td>
+      </tr>
+      <tr>
+        <td id="L314" class="blob-num js-line-number" data-line-number="314"></td>
+        <td id="LC314" class="blob-code blob-code-inner js-file-line">電車 を 降り た とき に 帽子 を 忘れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L315" class="blob-num js-line-number" data-line-number="315"></td>
+        <td id="LC315" class="blob-code blob-code-inner js-file-line">トム の 友達 は 彼 の こと を 「 マネー バッグ 」 と 呼 ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L316" class="blob-num js-line-number" data-line-number="316"></td>
+        <td id="LC316" class="blob-code blob-code-inner js-file-line">彼 は あまり に 子供 だ から 誘惑 に かて な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L317" class="blob-num js-line-number" data-line-number="317"></td>
+        <td id="LC317" class="blob-code blob-code-inner js-file-line">何 か 割引 切符 は あ り ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L318" class="blob-num js-line-number" data-line-number="318"></td>
+        <td id="LC318" class="blob-code blob-code-inner js-file-line">彼 は 我々 の 忠告 に 耳 を 貸 さ な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L319" class="blob-num js-line-number" data-line-number="319"></td>
+        <td id="LC319" class="blob-code blob-code-inner js-file-line">私 は 少な く とも 毎月 １ 冊 は 本 を 読 み ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L320" class="blob-num js-line-number" data-line-number="320"></td>
+        <td id="LC320" class="blob-code blob-code-inner js-file-line">姉 は 若 い 力士 を 応援 し て い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L321" class="blob-num js-line-number" data-line-number="321"></td>
+        <td id="LC321" class="blob-code blob-code-inner js-file-line">しかし 彼 の 友達 は 彼 を ケン と 呼 ぶ 。</td>
+      </tr>
+      <tr>
+        <td id="L322" class="blob-num js-line-number" data-line-number="322"></td>
+        <td id="LC322" class="blob-code blob-code-inner js-file-line">彼女 は 、 それ は あまり に 急 な 知ら せ だ と 彼 に ぐち を こぼ し た 。</td>
+      </tr>
+      <tr>
+        <td id="L323" class="blob-num js-line-number" data-line-number="323"></td>
+        <td id="LC323" class="blob-code blob-code-inner js-file-line">気 が 散 る から テレビ を 消 し て く れ 。</td>
+      </tr>
+      <tr>
+        <td id="L324" class="blob-num js-line-number" data-line-number="324"></td>
+        <td id="LC324" class="blob-code blob-code-inner js-file-line">誰 が 知 る もの か 。</td>
+      </tr>
+      <tr>
+        <td id="L325" class="blob-num js-line-number" data-line-number="325"></td>
+        <td id="LC325" class="blob-code blob-code-inner js-file-line">弟 が お 金 を 頂戴 と 言 い ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L326" class="blob-num js-line-number" data-line-number="326"></td>
+        <td id="LC326" class="blob-code blob-code-inner js-file-line">それ は 社会 に 寄与 する の だ 。</td>
+      </tr>
+      <tr>
+        <td id="L327" class="blob-num js-line-number" data-line-number="327"></td>
+        <td id="LC327" class="blob-code blob-code-inner js-file-line">私 は 私 の 写真 を と っ て もら い ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L328" class="blob-num js-line-number" data-line-number="328"></td>
+        <td id="LC328" class="blob-code blob-code-inner js-file-line">彼 は 私 に お 世辞 を 言 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L329" class="blob-num js-line-number" data-line-number="329"></td>
+        <td id="LC329" class="blob-code blob-code-inner js-file-line">あの プロジェクト に つ い て 彼 を 本気 に さ せ な い と 。</td>
+      </tr>
+      <tr>
+        <td id="L330" class="blob-num js-line-number" data-line-number="330"></td>
+        <td id="LC330" class="blob-code blob-code-inner js-file-line">この 条件 に 該当 する 人 は 誰 も い な い 。</td>
+      </tr>
+      <tr>
+        <td id="L331" class="blob-num js-line-number" data-line-number="331"></td>
+        <td id="LC331" class="blob-code blob-code-inner js-file-line">あなた は 預言 者 で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L332" class="blob-num js-line-number" data-line-number="332"></td>
+        <td id="LC332" class="blob-code blob-code-inner js-file-line">眠れ る 獅子 は 起こ す な 。</td>
+      </tr>
+      <tr>
+        <td id="L333" class="blob-num js-line-number" data-line-number="333"></td>
+        <td id="LC333" class="blob-code blob-code-inner js-file-line">たいてい の 人 が 以前 より も 暮らし 向き が よ い と 思 う 。</td>
+      </tr>
+      <tr>
+        <td id="L334" class="blob-num js-line-number" data-line-number="334"></td>
+        <td id="LC334" class="blob-code blob-code-inner js-file-line">話 を つけ よう じゃ な い か 。</td>
+      </tr>
+      <tr>
+        <td id="L335" class="blob-num js-line-number" data-line-number="335"></td>
+        <td id="LC335" class="blob-code blob-code-inner js-file-line">今日 の 新聞 は 読 み ま し た か 。</td>
+      </tr>
+      <tr>
+        <td id="L336" class="blob-num js-line-number" data-line-number="336"></td>
+        <td id="LC336" class="blob-code blob-code-inner js-file-line">私 は あなた に ぜひ 出席 し て もら い た い 。</td>
+      </tr>
+      <tr>
+        <td id="L337" class="blob-num js-line-number" data-line-number="337"></td>
+        <td id="LC337" class="blob-code blob-code-inner js-file-line">心づくし の 品 を 頂き ありがとう ござ い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L338" class="blob-num js-line-number" data-line-number="338"></td>
+        <td id="LC338" class="blob-code blob-code-inner js-file-line">ベス は いつ も 途方 に くれ て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L339" class="blob-num js-line-number" data-line-number="339"></td>
+        <td id="LC339" class="blob-code blob-code-inner js-file-line">ニューヨーク は 世界 で 最も にぎやか な 街 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L340" class="blob-num js-line-number" data-line-number="340"></td>
+        <td id="LC340" class="blob-code blob-code-inner js-file-line">この こと から 、 会社 に は 事故 の 責任 が 無 い こと に な る 。</td>
+      </tr>
+      <tr>
+        <td id="L341" class="blob-num js-line-number" data-line-number="341"></td>
+        <td id="LC341" class="blob-code blob-code-inner js-file-line">その 話 を 聞 い て 泣 か な い 人 は い な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L342" class="blob-num js-line-number" data-line-number="342"></td>
+        <td id="LC342" class="blob-code blob-code-inner js-file-line">メアリー は 母親 に 良く 似 て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L343" class="blob-num js-line-number" data-line-number="343"></td>
+        <td id="LC343" class="blob-code blob-code-inner js-file-line">私 は ゴルフ で 彼 を 負か し た 。</td>
+      </tr>
+      <tr>
+        <td id="L344" class="blob-num js-line-number" data-line-number="344"></td>
+        <td id="LC344" class="blob-code blob-code-inner js-file-line">最後 の 傷 が 致命 的 で あ る と わか っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L345" class="blob-num js-line-number" data-line-number="345"></td>
+        <td id="LC345" class="blob-code blob-code-inner js-file-line">フロスト 氏 は その 地位 に つ く 資格 が あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L346" class="blob-num js-line-number" data-line-number="346"></td>
+        <td id="LC346" class="blob-code blob-code-inner js-file-line">その 事故 で たくさん の 乗客 が けが し た 。</td>
+      </tr>
+      <tr>
+        <td id="L347" class="blob-num js-line-number" data-line-number="347"></td>
+        <td id="LC347" class="blob-code blob-code-inner js-file-line">僕 は ガール フレンド と 一緒 に スキー に 行 く 予定 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L348" class="blob-num js-line-number" data-line-number="348"></td>
+        <td id="LC348" class="blob-code blob-code-inner js-file-line">自動 車 産業 は 日本 の 大きな 産業 の ひと つ で あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L349" class="blob-num js-line-number" data-line-number="349"></td>
+        <td id="LC349" class="blob-code blob-code-inner js-file-line">相場 師 の 中 に は 老人 の 無知 と 寂し さ に 付け込 む 奴 が い る 。</td>
+      </tr>
+      <tr>
+        <td id="L350" class="blob-num js-line-number" data-line-number="350"></td>
+        <td id="LC350" class="blob-code blob-code-inner js-file-line">彼 と 僕 は ツーカー の 仲 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L351" class="blob-num js-line-number" data-line-number="351"></td>
+        <td id="LC351" class="blob-code blob-code-inner js-file-line">部隊 は 陣地 を 守 り 続け た 。</td>
+      </tr>
+      <tr>
+        <td id="L352" class="blob-num js-line-number" data-line-number="352"></td>
+        <td id="LC352" class="blob-code blob-code-inner js-file-line">まず 結婚 しろ 。 そう すれ ば 愛情 と は あと で 生まれ て くる 。</td>
+      </tr>
+      <tr>
+        <td id="L353" class="blob-num js-line-number" data-line-number="353"></td>
+        <td id="LC353" class="blob-code blob-code-inner js-file-line">彼 は 無知 で あ る 上 に 、 傲慢 で も あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L354" class="blob-num js-line-number" data-line-number="354"></td>
+        <td id="LC354" class="blob-code blob-code-inner js-file-line">そこ に は 歩 い て 行 っ た 方 が い い よ 。</td>
+      </tr>
+      <tr>
+        <td id="L355" class="blob-num js-line-number" data-line-number="355"></td>
+        <td id="LC355" class="blob-code blob-code-inner js-file-line">バス に 乗り 遅れ る なんて 君 は 不 注意 だっ た ね 。</td>
+      </tr>
+      <tr>
+        <td id="L356" class="blob-num js-line-number" data-line-number="356"></td>
+        <td id="LC356" class="blob-code blob-code-inner js-file-line">分析 に お い て は 、 クルツ に よ っ て 最初 に 分析 さ れ た 権威 的 行動 の 類型 に 負 っ て い る 部分 が 大き い 。</td>
+      </tr>
+      <tr>
+        <td id="L357" class="blob-num js-line-number" data-line-number="357"></td>
+        <td id="LC357" class="blob-code blob-code-inner js-file-line">君 は いつ 暇 に な り ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L358" class="blob-num js-line-number" data-line-number="358"></td>
+        <td id="LC358" class="blob-code blob-code-inner js-file-line">明日 集ま り ま しょ う 。</td>
+      </tr>
+      <tr>
+        <td id="L359" class="blob-num js-line-number" data-line-number="359"></td>
+        <td id="LC359" class="blob-code blob-code-inner js-file-line">そんな に 沢山 パン に 乗 る ん か？</td>
+      </tr>
+      <tr>
+        <td id="L360" class="blob-num js-line-number" data-line-number="360"></td>
+        <td id="LC360" class="blob-code blob-code-inner js-file-line">彼 は 熟練 の ピアニスト だ 。</td>
+      </tr>
+      <tr>
+        <td id="L361" class="blob-num js-line-number" data-line-number="361"></td>
+        <td id="LC361" class="blob-code blob-code-inner js-file-line">私 は あなた を 好き に な ら ず に は い られ な い 。</td>
+      </tr>
+      <tr>
+        <td id="L362" class="blob-num js-line-number" data-line-number="362"></td>
+        <td id="LC362" class="blob-code blob-code-inner js-file-line">やはり 、 ここ の タイ 料理 の 味付け は 、 日本 人 好み に し て あ る ん だ ね 。</td>
+      </tr>
+      <tr>
+        <td id="L363" class="blob-num js-line-number" data-line-number="363"></td>
+        <td id="LC363" class="blob-code blob-code-inner js-file-line">彼 の 憂うつ は 彼女 が キス を する と 晴れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L364" class="blob-num js-line-number" data-line-number="364"></td>
+        <td id="LC364" class="blob-code blob-code-inner js-file-line">ジェーン は テニス を し ま せ ん で し た ね 。</td>
+      </tr>
+      <tr>
+        <td id="L365" class="blob-num js-line-number" data-line-number="365"></td>
+        <td id="LC365" class="blob-code blob-code-inner js-file-line">私 に 何 か 食べ物 を 下さ い 。</td>
+      </tr>
+      <tr>
+        <td id="L366" class="blob-num js-line-number" data-line-number="366"></td>
+        <td id="LC366" class="blob-code blob-code-inner js-file-line">私 達 は 毎晩 テレビ を 見 る 。</td>
+      </tr>
+      <tr>
+        <td id="L367" class="blob-num js-line-number" data-line-number="367"></td>
+        <td id="LC367" class="blob-code blob-code-inner js-file-line">僕 たち に 答え が わか っ た ら すぐ に 君 に 電話 する よ 。</td>
+      </tr>
+      <tr>
+        <td id="L368" class="blob-num js-line-number" data-line-number="368"></td>
+        <td id="LC368" class="blob-code blob-code-inner js-file-line">今 私 たち に 必要 な の は 休息 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L369" class="blob-num js-line-number" data-line-number="369"></td>
+        <td id="LC369" class="blob-code blob-code-inner js-file-line">そう する べ き で は な い と 思 う 。</td>
+      </tr>
+      <tr>
+        <td id="L370" class="blob-num js-line-number" data-line-number="370"></td>
+        <td id="LC370" class="blob-code blob-code-inner js-file-line">私 は だま さ れ て い た の だ と い う 結論 に 達 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L371" class="blob-num js-line-number" data-line-number="371"></td>
+        <td id="LC371" class="blob-code blob-code-inner js-file-line">昨日 ケン に 会 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L372" class="blob-num js-line-number" data-line-number="372"></td>
+        <td id="LC372" class="blob-code blob-code-inner js-file-line">保険 を かけ て 下さ い 。</td>
+      </tr>
+      <tr>
+        <td id="L373" class="blob-num js-line-number" data-line-number="373"></td>
+        <td id="LC373" class="blob-code blob-code-inner js-file-line">良 い 休暇 を 。</td>
+      </tr>
+      <tr>
+        <td id="L374" class="blob-num js-line-number" data-line-number="374"></td>
+        <td id="LC374" class="blob-code blob-code-inner js-file-line">この 山 に は 狐 が 住 ん で い る と い う こと が 最近 わか っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L375" class="blob-num js-line-number" data-line-number="375"></td>
+        <td id="LC375" class="blob-code blob-code-inner js-file-line">彼 は 疲れ すぎ て い て もう それ 以上 歩け な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L376" class="blob-num js-line-number" data-line-number="376"></td>
+        <td id="LC376" class="blob-code blob-code-inner js-file-line">植物 は 土壌 で 育 つ 。</td>
+      </tr>
+      <tr>
+        <td id="L377" class="blob-num js-line-number" data-line-number="377"></td>
+        <td id="LC377" class="blob-code blob-code-inner js-file-line">彼 は 神経 衰弱 に な っ て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L378" class="blob-num js-line-number" data-line-number="378"></td>
+        <td id="LC378" class="blob-code blob-code-inner js-file-line">ミホ は 私 が 一番 好き な 女の子 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L379" class="blob-num js-line-number" data-line-number="379"></td>
+        <td id="LC379" class="blob-code blob-code-inner js-file-line">彼 は 金持ち で あ る よう に 思 わ れ る 。</td>
+      </tr>
+      <tr>
+        <td id="L380" class="blob-num js-line-number" data-line-number="380"></td>
+        <td id="LC380" class="blob-code blob-code-inner js-file-line">ジョン は 、 その 不 誠実 な セールスマン が 、 彼 を だま し て 無用 な 機械 を 買 わ せ た と 主張 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L381" class="blob-num js-line-number" data-line-number="381"></td>
+        <td id="LC381" class="blob-code blob-code-inner js-file-line">それ を 考え る と ぞっと する 。</td>
+      </tr>
+      <tr>
+        <td id="L382" class="blob-num js-line-number" data-line-number="382"></td>
+        <td id="LC382" class="blob-code blob-code-inner js-file-line">彼 の 生活 は 心配 が な い 。</td>
+      </tr>
+      <tr>
+        <td id="L383" class="blob-num js-line-number" data-line-number="383"></td>
+        <td id="LC383" class="blob-code blob-code-inner js-file-line">もっと 注意 深 く 運転 し な けれ ば 、 事故 に 巻き込 ま れ ま す よ 。</td>
+      </tr>
+      <tr>
+        <td id="L384" class="blob-num js-line-number" data-line-number="384"></td>
+        <td id="LC384" class="blob-code blob-code-inner js-file-line">それ が 間違 っ て い る 可能 性 が 非常 に 強 い 。</td>
+      </tr>
+      <tr>
+        <td id="L385" class="blob-num js-line-number" data-line-number="385"></td>
+        <td id="LC385" class="blob-code blob-code-inner js-file-line">私 は あなた の 助け が とても 必要 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L386" class="blob-num js-line-number" data-line-number="386"></td>
+        <td id="LC386" class="blob-code blob-code-inner js-file-line">彼女 は 先月 本社 から 支社 へ 転勤 さ せ られ た 。</td>
+      </tr>
+      <tr>
+        <td id="L387" class="blob-num js-line-number" data-line-number="387"></td>
+        <td id="LC387" class="blob-code blob-code-inner js-file-line">私 は その 男 に 会 っ た 。 する と 彼 は 私 に 道 を 教え て くれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L388" class="blob-num js-line-number" data-line-number="388"></td>
+        <td id="LC388" class="blob-code blob-code-inner js-file-line">背後 に 見え隠れ する の は 近年 の 不 動産 不況 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L389" class="blob-num js-line-number" data-line-number="389"></td>
+        <td id="LC389" class="blob-code blob-code-inner js-file-line">彼女 は その 塀 を 赤 く 塗 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L390" class="blob-num js-line-number" data-line-number="390"></td>
+        <td id="LC390" class="blob-code blob-code-inner js-file-line">彼 ら は 年内 に 在庫 品 の かた を つけ な けれ ば な ら な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L391" class="blob-num js-line-number" data-line-number="391"></td>
+        <td id="LC391" class="blob-code blob-code-inner js-file-line">カルロス は 山 を 登 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L392" class="blob-num js-line-number" data-line-number="392"></td>
+        <td id="LC392" class="blob-code blob-code-inner js-file-line">私 は フランス 語 は 少し も 知 ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L393" class="blob-num js-line-number" data-line-number="393"></td>
+        <td id="LC393" class="blob-code blob-code-inner js-file-line">彼 の 双子 の 妹 たち を 区別 する こと が でき な い 。</td>
+      </tr>
+      <tr>
+        <td id="L394" class="blob-num js-line-number" data-line-number="394"></td>
+        <td id="LC394" class="blob-code blob-code-inner js-file-line">我々 は 読み書き を なら う 。</td>
+      </tr>
+      <tr>
+        <td id="L395" class="blob-num js-line-number" data-line-number="395"></td>
+        <td id="LC395" class="blob-code blob-code-inner js-file-line">英語 を 上達 さ せ た い なら 、 でき る だけ 英語 を 話 す よう に つとめ なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L396" class="blob-num js-line-number" data-line-number="396"></td>
+        <td id="LC396" class="blob-code blob-code-inner js-file-line">人 は 不正 を 正 し た い とき は 法律 に 頼 る こと が 出来 る 。</td>
+      </tr>
+      <tr>
+        <td id="L397" class="blob-num js-line-number" data-line-number="397"></td>
+        <td id="LC397" class="blob-code blob-code-inner js-file-line">あの 店 に は 私 に 合 う 帽子 は な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L398" class="blob-num js-line-number" data-line-number="398"></td>
+        <td id="LC398" class="blob-code blob-code-inner js-file-line">たまたま その 日 は 私 の 誕生 日 で し た 。</td>
+      </tr>
+      <tr>
+        <td id="L399" class="blob-num js-line-number" data-line-number="399"></td>
+        <td id="LC399" class="blob-code blob-code-inner js-file-line">小切手 で 支払 い た い の で す が 。</td>
+      </tr>
+      <tr>
+        <td id="L400" class="blob-num js-line-number" data-line-number="400"></td>
+        <td id="LC400" class="blob-code blob-code-inner js-file-line">旅行 会社 の 収益 が 急増 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L401" class="blob-num js-line-number" data-line-number="401"></td>
+        <td id="LC401" class="blob-code blob-code-inner js-file-line">何 の こと を い っ て い る の か 私 に は ピン と き た 。</td>
+      </tr>
+      <tr>
+        <td id="L402" class="blob-num js-line-number" data-line-number="402"></td>
+        <td id="LC402" class="blob-code blob-code-inner js-file-line">テイト 氏 を つれ て き て いただけ ま せ ん か 。</td>
+      </tr>
+      <tr>
+        <td id="L403" class="blob-num js-line-number" data-line-number="403"></td>
+        <td id="LC403" class="blob-code blob-code-inner js-file-line">銀河 系 に は 無数 の 星 が あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L404" class="blob-num js-line-number" data-line-number="404"></td>
+        <td id="LC404" class="blob-code blob-code-inner js-file-line">以前 に その 寺 へ 行 っ た こと が あ る の で 、 私 は 道 を 知 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L405" class="blob-num js-line-number" data-line-number="405"></td>
+        <td id="LC405" class="blob-code blob-code-inner js-file-line">「 あっぱれ ！ 」 天使 は そう い う と 、 稲妻 が 走 る もやもや の 煙 の 中 へ 消え て い っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L406" class="blob-num js-line-number" data-line-number="406"></td>
+        <td id="LC406" class="blob-code blob-code-inner js-file-line">悪 い ところ は あ り ま せ ん 。</td>
+      </tr>
+      <tr>
+        <td id="L407" class="blob-num js-line-number" data-line-number="407"></td>
+        <td id="LC407" class="blob-code blob-code-inner js-file-line">最近 私 は よく 眠れ な い 。</td>
+      </tr>
+      <tr>
+        <td id="L408" class="blob-num js-line-number" data-line-number="408"></td>
+        <td id="LC408" class="blob-code blob-code-inner js-file-line">それ を 私 の ところ に 持 っ て 来 なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L409" class="blob-num js-line-number" data-line-number="409"></td>
+        <td id="LC409" class="blob-code blob-code-inner js-file-line">野鳥 観察 は すばらし い 趣味 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L410" class="blob-num js-line-number" data-line-number="410"></td>
+        <td id="LC410" class="blob-code blob-code-inner js-file-line">雪 は 月曜 から 金曜 まで 降 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L411" class="blob-num js-line-number" data-line-number="411"></td>
+        <td id="LC411" class="blob-code blob-code-inner js-file-line">彼 は 彼女 に 自分 の 計画 を 知 ら せ た 。</td>
+      </tr>
+      <tr>
+        <td id="L412" class="blob-num js-line-number" data-line-number="412"></td>
+        <td id="LC412" class="blob-code blob-code-inner js-file-line">彼 は 数 週間 東京 に 滞在 する だ ろ う 。</td>
+      </tr>
+      <tr>
+        <td id="L413" class="blob-num js-line-number" data-line-number="413"></td>
+        <td id="LC413" class="blob-code blob-code-inner js-file-line">あなた は 彼女 が 帰 っ て くる の を 待ち さえ すれ ば よ い 。</td>
+      </tr>
+      <tr>
+        <td id="L414" class="blob-num js-line-number" data-line-number="414"></td>
+        <td id="LC414" class="blob-code blob-code-inner js-file-line">彼 は 大胆 な こと を 言 う 。</td>
+      </tr>
+      <tr>
+        <td id="L415" class="blob-num js-line-number" data-line-number="415"></td>
+        <td id="LC415" class="blob-code blob-code-inner js-file-line">ポール は 学校 で 飛び抜け て 魅力 の あ る 生徒 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L416" class="blob-num js-line-number" data-line-number="416"></td>
+        <td id="LC416" class="blob-code blob-code-inner js-file-line">それ で は 契約 と 違 う 。</td>
+      </tr>
+      <tr>
+        <td id="L417" class="blob-num js-line-number" data-line-number="417"></td>
+        <td id="LC417" class="blob-code blob-code-inner js-file-line">貴方 を 愛 する こと に 変わり は な い から 。</td>
+      </tr>
+      <tr>
+        <td id="L418" class="blob-num js-line-number" data-line-number="418"></td>
+        <td id="LC418" class="blob-code blob-code-inner js-file-line">彼 の 食事 に は カルシウム が 欠け て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L419" class="blob-num js-line-number" data-line-number="419"></td>
+        <td id="LC419" class="blob-code blob-code-inner js-file-line">彼 が どう な っ た か だれ が し っ て い よう か 。</td>
+      </tr>
+      <tr>
+        <td id="L420" class="blob-num js-line-number" data-line-number="420"></td>
+        <td id="LC420" class="blob-code blob-code-inner js-file-line">君 達 が お しゃべり を し て い て は 、 授業 が でき ま せ ん 。</td>
+      </tr>
+      <tr>
+        <td id="L421" class="blob-num js-line-number" data-line-number="421"></td>
+        <td id="LC421" class="blob-code blob-code-inner js-file-line">ジャネット が 昇進 する みたい よ 。</td>
+      </tr>
+      <tr>
+        <td id="L422" class="blob-num js-line-number" data-line-number="422"></td>
+        <td id="LC422" class="blob-code blob-code-inner js-file-line">固 い 便 が 出 ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L423" class="blob-num js-line-number" data-line-number="423"></td>
+        <td id="LC423" class="blob-code blob-code-inner js-file-line">彼女 が き た と 、 き い た 。</td>
+      </tr>
+      <tr>
+        <td id="L424" class="blob-num js-line-number" data-line-number="424"></td>
+        <td id="LC424" class="blob-code blob-code-inner js-file-line">州 政府 は 彼 から 市民 権 を 剥奪 し た 。</td>
+      </tr>
+      <tr>
+        <td id="L425" class="blob-num js-line-number" data-line-number="425"></td>
+        <td id="LC425" class="blob-code blob-code-inner js-file-line">クモ は 網 を 張 る 。</td>
+      </tr>
+      <tr>
+        <td id="L426" class="blob-num js-line-number" data-line-number="426"></td>
+        <td id="LC426" class="blob-code blob-code-inner js-file-line">彼 ら は いつ も けんか ばかり し て い た 。</td>
+      </tr>
+      <tr>
+        <td id="L427" class="blob-num js-line-number" data-line-number="427"></td>
+        <td id="LC427" class="blob-code blob-code-inner js-file-line">じろじろ 見 る の は 無 作法 で あ る 。</td>
+      </tr>
+      <tr>
+        <td id="L428" class="blob-num js-line-number" data-line-number="428"></td>
+        <td id="LC428" class="blob-code blob-code-inner js-file-line">彼女 は 生き て い る ！ おぼれ かけ て い た ん だ が 、 父親 が 助け た ん だ 。</td>
+      </tr>
+      <tr>
+        <td id="L429" class="blob-num js-line-number" data-line-number="429"></td>
+        <td id="LC429" class="blob-code blob-code-inner js-file-line">彼 は ドア が すべて 安全 に 閉ま っ て い る か どう か 確かめ た 。</td>
+      </tr>
+      <tr>
+        <td id="L430" class="blob-num js-line-number" data-line-number="430"></td>
+        <td id="LC430" class="blob-code blob-code-inner js-file-line">学生 たち は その 演説 を 聞 く ため に ここ に 集ま っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L431" class="blob-num js-line-number" data-line-number="431"></td>
+        <td id="LC431" class="blob-code blob-code-inner js-file-line">彼 は その 絵 に 目 を 向け た 。</td>
+      </tr>
+      <tr>
+        <td id="L432" class="blob-num js-line-number" data-line-number="432"></td>
+        <td id="LC432" class="blob-code blob-code-inner js-file-line">あなた は 毎朝 何 時 に 起き ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L433" class="blob-num js-line-number" data-line-number="433"></td>
+        <td id="LC433" class="blob-code blob-code-inner js-file-line">私 は 疑い 深 い 性格 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L434" class="blob-num js-line-number" data-line-number="434"></td>
+        <td id="LC434" class="blob-code blob-code-inner js-file-line">ジム は 白 い 帽子 を かぶ っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L435" class="blob-num js-line-number" data-line-number="435"></td>
+        <td id="LC435" class="blob-code blob-code-inner js-file-line">２人 の 女性 は お 互い 微笑み あ っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L436" class="blob-num js-line-number" data-line-number="436"></td>
+        <td id="LC436" class="blob-code blob-code-inner js-file-line">準備 は まだ 出来 て い ま せ ん か 。</td>
+      </tr>
+      <tr>
+        <td id="L437" class="blob-num js-line-number" data-line-number="437"></td>
+        <td id="LC437" class="blob-code blob-code-inner js-file-line">彼 は 勇気 の かけら も な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L438" class="blob-num js-line-number" data-line-number="438"></td>
+        <td id="LC438" class="blob-code blob-code-inner js-file-line">この 天気 に 外出 する など 想像 も でき な い 。</td>
+      </tr>
+      <tr>
+        <td id="L439" class="blob-num js-line-number" data-line-number="439"></td>
+        <td id="LC439" class="blob-code blob-code-inner js-file-line">石油 会社 は 再び ガソリン の 価格 を 上げ た 。</td>
+      </tr>
+      <tr>
+        <td id="L440" class="blob-num js-line-number" data-line-number="440"></td>
+        <td id="LC440" class="blob-code blob-code-inner js-file-line">彼 は 世界 を 知 ら な い 。</td>
+      </tr>
+      <tr>
+        <td id="L441" class="blob-num js-line-number" data-line-number="441"></td>
+        <td id="LC441" class="blob-code blob-code-inner js-file-line">「 もちろん 、 捨て て く れ 」 と 農家 が 答え ま し た 。</td>
+      </tr>
+      <tr>
+        <td id="L442" class="blob-num js-line-number" data-line-number="442"></td>
+        <td id="LC442" class="blob-code blob-code-inner js-file-line">あなた は もう 昼食 を おえ ま し た か 。</td>
+      </tr>
+      <tr>
+        <td id="L443" class="blob-num js-line-number" data-line-number="443"></td>
+        <td id="LC443" class="blob-code blob-code-inner js-file-line">演奏 会 の 切符 は 当 事務 所 で 販売 し て い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L444" class="blob-num js-line-number" data-line-number="444"></td>
+        <td id="LC444" class="blob-code blob-code-inner js-file-line">皆 さん 間違い な く ９ 時 に 着 く よう に し て くださ い 。</td>
+      </tr>
+      <tr>
+        <td id="L445" class="blob-num js-line-number" data-line-number="445"></td>
+        <td id="LC445" class="blob-code blob-code-inner js-file-line">君 は 神 の 存在 を 信 じ ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L446" class="blob-num js-line-number" data-line-number="446"></td>
+        <td id="LC446" class="blob-code blob-code-inner js-file-line">彼 ら は 二人 とも 親切 で 正直 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L447" class="blob-num js-line-number" data-line-number="447"></td>
+        <td id="LC447" class="blob-code blob-code-inner js-file-line">いつ お い で くださ っ て も 歓迎 いた し ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L448" class="blob-num js-line-number" data-line-number="448"></td>
+        <td id="LC448" class="blob-code blob-code-inner js-file-line">上空 を ジェット 機 が キーン と い う 音 を 立て て 飛 ん で い っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L449" class="blob-num js-line-number" data-line-number="449"></td>
+        <td id="LC449" class="blob-code blob-code-inner js-file-line">どこ に 行 っ た ら 助け て もらえ ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L450" class="blob-num js-line-number" data-line-number="450"></td>
+        <td id="LC450" class="blob-code blob-code-inner js-file-line">しかし 君 は あまり 膝 を 曲げ た く な い で しょ う 。</td>
+      </tr>
+      <tr>
+        <td id="L451" class="blob-num js-line-number" data-line-number="451"></td>
+        <td id="LC451" class="blob-code blob-code-inner js-file-line">彼 の 成功 は 大いに 私 の 励み に な っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L452" class="blob-num js-line-number" data-line-number="452"></td>
+        <td id="LC452" class="blob-code blob-code-inner js-file-line">リンゴ を 食べ る 前 に 皮 を む き なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L453" class="blob-num js-line-number" data-line-number="453"></td>
+        <td id="LC453" class="blob-code blob-code-inner js-file-line">途中 で 乗り換え が 必要 で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L454" class="blob-num js-line-number" data-line-number="454"></td>
+        <td id="LC454" class="blob-code blob-code-inner js-file-line">幸い 大過 な く 仕事 を 終わ ら せ る こと が でき た 。</td>
+      </tr>
+      <tr>
+        <td id="L455" class="blob-num js-line-number" data-line-number="455"></td>
+        <td id="LC455" class="blob-code blob-code-inner js-file-line">バラ が 咲 い て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L456" class="blob-num js-line-number" data-line-number="456"></td>
+        <td id="LC456" class="blob-code blob-code-inner js-file-line">私 は 昨日 見 た 試合 ほど おもしろ い ラグビー の 試合 を 見 た こと が な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L457" class="blob-num js-line-number" data-line-number="457"></td>
+        <td id="LC457" class="blob-code blob-code-inner js-file-line">その 家 は 警察 の 手入れ を うけ た 。</td>
+      </tr>
+      <tr>
+        <td id="L458" class="blob-num js-line-number" data-line-number="458"></td>
+        <td id="LC458" class="blob-code blob-code-inner js-file-line">彼 は 衝動 に 駆 ら れ た 。</td>
+      </tr>
+      <tr>
+        <td id="L459" class="blob-num js-line-number" data-line-number="459"></td>
+        <td id="LC459" class="blob-code blob-code-inner js-file-line">昨日 メアリー は 表紙 が 青 い 本 を くれ た 。</td>
+      </tr>
+      <tr>
+        <td id="L460" class="blob-num js-line-number" data-line-number="460"></td>
+        <td id="LC460" class="blob-code blob-code-inner js-file-line">彼女 に 御 行儀 よ く し なさ い と いつ も 言 っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L461" class="blob-num js-line-number" data-line-number="461"></td>
+        <td id="LC461" class="blob-code blob-code-inner js-file-line">少し 待 っ て くれ た ら 、 ジェーン を 電話 に 出 さ せ ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L462" class="blob-num js-line-number" data-line-number="462"></td>
+        <td id="LC462" class="blob-code blob-code-inner js-file-line">彼女 と は ときおり 美容 院 で 会 い ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L463" class="blob-num js-line-number" data-line-number="463"></td>
+        <td id="LC463" class="blob-code blob-code-inner js-file-line">しかし 、 主人 公 は 自ら の 誤り に 気づ い て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L464" class="blob-num js-line-number" data-line-number="464"></td>
+        <td id="LC464" class="blob-code blob-code-inner js-file-line">私 は 彼 の 態度 に 我慢 でき な い 。</td>
+      </tr>
+      <tr>
+        <td id="L465" class="blob-num js-line-number" data-line-number="465"></td>
+        <td id="LC465" class="blob-code blob-code-inner js-file-line">彼 は 何事 も 程々 と い う 事 を 知 ら ず 、 いつ も 極端 に 走 っ て しま う 。</td>
+      </tr>
+      <tr>
+        <td id="L466" class="blob-num js-line-number" data-line-number="466"></td>
+        <td id="LC466" class="blob-code blob-code-inner js-file-line">道路 を 横断 する とき に は 注意 し なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L467" class="blob-num js-line-number" data-line-number="467"></td>
+        <td id="LC467" class="blob-code blob-code-inner js-file-line">自分 の こと だけ 気 に かけ ろ ！</td>
+      </tr>
+      <tr>
+        <td id="L468" class="blob-num js-line-number" data-line-number="468"></td>
+        <td id="LC468" class="blob-code blob-code-inner js-file-line">友人 は マイ カー を 欲し が っ て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L469" class="blob-num js-line-number" data-line-number="469"></td>
+        <td id="LC469" class="blob-code blob-code-inner js-file-line">彼女 は 私 の ひじ を 引っ張 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L470" class="blob-num js-line-number" data-line-number="470"></td>
+        <td id="LC470" class="blob-code blob-code-inner js-file-line">何 が 起こ ろ う と も 、 私 は あなた の 味方 を する 。</td>
+      </tr>
+      <tr>
+        <td id="L471" class="blob-num js-line-number" data-line-number="471"></td>
+        <td id="LC471" class="blob-code blob-code-inner js-file-line">コーヒー を 飲 み ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L472" class="blob-num js-line-number" data-line-number="472"></td>
+        <td id="LC472" class="blob-code blob-code-inner js-file-line">気持ち を 御 察し し ま す 。</td>
+      </tr>
+      <tr>
+        <td id="L473" class="blob-num js-line-number" data-line-number="473"></td>
+        <td id="LC473" class="blob-code blob-code-inner js-file-line">にわか 雨 に な る らし い で す よ 。</td>
+      </tr>
+      <tr>
+        <td id="L474" class="blob-num js-line-number" data-line-number="474"></td>
+        <td id="LC474" class="blob-code blob-code-inner js-file-line">何事 も 最初 が 肝心 だ よ な 。</td>
+      </tr>
+      <tr>
+        <td id="L475" class="blob-num js-line-number" data-line-number="475"></td>
+        <td id="LC475" class="blob-code blob-code-inner js-file-line">その 語 は 誤用 さ れ やす い 。</td>
+      </tr>
+      <tr>
+        <td id="L476" class="blob-num js-line-number" data-line-number="476"></td>
+        <td id="LC476" class="blob-code blob-code-inner js-file-line">彼 ら は 設計 図 どおり に 船 を 作 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L477" class="blob-num js-line-number" data-line-number="477"></td>
+        <td id="LC477" class="blob-code blob-code-inner js-file-line">ほんの ２、３ 日 前 に 彼女 に 会 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L478" class="blob-num js-line-number" data-line-number="478"></td>
+        <td id="LC478" class="blob-code blob-code-inner js-file-line">それ は どの ゲート で す か 。</td>
+      </tr>
+      <tr>
+        <td id="L479" class="blob-num js-line-number" data-line-number="479"></td>
+        <td id="LC479" class="blob-code blob-code-inner js-file-line">私 は 何 と し て も 酒 を 止め る つもり で す 。</td>
+      </tr>
+      <tr>
+        <td id="L480" class="blob-num js-line-number" data-line-number="480"></td>
+        <td id="LC480" class="blob-code blob-code-inner js-file-line">夜 の ツアー は あ り ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L481" class="blob-num js-line-number" data-line-number="481"></td>
+        <td id="LC481" class="blob-code blob-code-inner js-file-line">もっと 分別 が あ っ て も い い 年頃 だ よ 。</td>
+      </tr>
+      <tr>
+        <td id="L482" class="blob-num js-line-number" data-line-number="482"></td>
+        <td id="LC482" class="blob-code blob-code-inner js-file-line">この 停留 所 から ５ 番 目 の バス に 乗り なさ い 。</td>
+      </tr>
+      <tr>
+        <td id="L483" class="blob-num js-line-number" data-line-number="483"></td>
+        <td id="LC483" class="blob-code blob-code-inner js-file-line">彼 に は お 金 が 足り な い よう だっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L484" class="blob-num js-line-number" data-line-number="484"></td>
+        <td id="LC484" class="blob-code blob-code-inner js-file-line">彼 は 彼女 を 援助 し て や る 必要 が あ り ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L485" class="blob-num js-line-number" data-line-number="485"></td>
+        <td id="LC485" class="blob-code blob-code-inner js-file-line">軽 い 風邪 で す 。</td>
+      </tr>
+      <tr>
+        <td id="L486" class="blob-num js-line-number" data-line-number="486"></td>
+        <td id="LC486" class="blob-code blob-code-inner js-file-line">サッカー チーム 全体 が 優勝 し て 浮き浮き し て た 。</td>
+      </tr>
+      <tr>
+        <td id="L487" class="blob-num js-line-number" data-line-number="487"></td>
+        <td id="LC487" class="blob-code blob-code-inner js-file-line">この 町 は 気 に 入 り ま し た か 。</td>
+      </tr>
+      <tr>
+        <td id="L488" class="blob-num js-line-number" data-line-number="488"></td>
+        <td id="LC488" class="blob-code blob-code-inner js-file-line">冬 は 過ぎ去 っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L489" class="blob-num js-line-number" data-line-number="489"></td>
+        <td id="LC489" class="blob-code blob-code-inner js-file-line">彼 の 助け 無し に は 、 や っ て いけ な い 。</td>
+      </tr>
+      <tr>
+        <td id="L490" class="blob-num js-line-number" data-line-number="490"></td>
+        <td id="LC490" class="blob-code blob-code-inner js-file-line">この ホール は 最大 で １０００ 人 収容 でき る 。</td>
+      </tr>
+      <tr>
+        <td id="L491" class="blob-num js-line-number" data-line-number="491"></td>
+        <td id="LC491" class="blob-code blob-code-inner js-file-line">天気 予報 は どう で し た か 。</td>
+      </tr>
+      <tr>
+        <td id="L492" class="blob-num js-line-number" data-line-number="492"></td>
+        <td id="LC492" class="blob-code blob-code-inner js-file-line">再三 彼 ら を 招待 し た が 決して こ な かっ た 。</td>
+      </tr>
+      <tr>
+        <td id="L493" class="blob-num js-line-number" data-line-number="493"></td>
+        <td id="LC493" class="blob-code blob-code-inner js-file-line">誰 も が 彼 の 技術 を 認め た 。</td>
+      </tr>
+      <tr>
+        <td id="L494" class="blob-num js-line-number" data-line-number="494"></td>
+        <td id="LC494" class="blob-code blob-code-inner js-file-line">貴方 は 、 明日 学校 に 行 く だ ろ う 。</td>
+      </tr>
+      <tr>
+        <td id="L495" class="blob-num js-line-number" data-line-number="495"></td>
+        <td id="LC495" class="blob-code blob-code-inner js-file-line">この データ は その 議論 に と っ て 重要 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L496" class="blob-num js-line-number" data-line-number="496"></td>
+        <td id="LC496" class="blob-code blob-code-inner js-file-line">彼女 と は よく 会 い ま す か 。</td>
+      </tr>
+      <tr>
+        <td id="L497" class="blob-num js-line-number" data-line-number="497"></td>
+        <td id="LC497" class="blob-code blob-code-inner js-file-line">彼 ら は 容易 な ら ぬ 事態 に 直面 し て い る 。</td>
+      </tr>
+      <tr>
+        <td id="L498" class="blob-num js-line-number" data-line-number="498"></td>
+        <td id="LC498" class="blob-code blob-code-inner js-file-line">多く の 時間 が 無駄 に な っ た 。</td>
+      </tr>
+      <tr>
+        <td id="L499" class="blob-num js-line-number" data-line-number="499"></td>
+        <td id="LC499" class="blob-code blob-code-inner js-file-line">僕 の もの は 全て 君 の 物 だ 。</td>
+      </tr>
+      <tr>
+        <td id="L500" class="blob-num js-line-number" data-line-number="500"></td>
+        <td id="LC500" class="blob-code blob-code-inner js-file-line">ステーキ は 中位 で 焼 い て くださ い 。</td>
+      </tr>
+</table>
+
+  </div>
+
+</div>
+
+<button type="button" data-facebox="#jump-to-line" data-facebox-class="linejump" data-hotkey="l" class="d-none">Jump to Line</button>
+<div id="jump-to-line" style="display:none">
+  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="" class="js-jump-to-line-form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    <input class="form-control linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
+    <button type="submit" class="btn">Go</button>
+</form></div>
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+
+    </div>
+  </div>
+
+    </div>
+
+        <div class="container site-footer-container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links float-right">
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact GitHub</a></li>
+      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com" aria-label="Homepage" class="site-footer-mark" title="GitHub">
+      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+    <ul class="site-footer-links">
+      <li>&copy; 2016 <span title="0.14354s from github-fe156-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+    
+
+    <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+      <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+        <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+      </button>
+      You can't perform that action at this time.
+    </div>
+
+
+      
+      <script crossorigin="anonymous" integrity="sha256-L6pkwljRgRS3AhH1UbNFhz3Er2ole9n67+U+Wg3jw+k=" src="https://assets-cdn.github.com/assets/frameworks-2faa64c258d18114b70211f551b345873dc4af6a257bd9faefe53e5a0de3c3e9.js"></script>
+      <script async="async" crossorigin="anonymous" integrity="sha256-QqfDmJPTSCvPUPMjHY4gY7JompCTpDBYKnp+XRfHuIY=" src="https://assets-cdn.github.com/assets/github-42a7c39893d3482bcf50f3231d8e2063b2689a9093a430582a7a7e5d17c7b886.js"></script>
+      
+      
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner d-none">
+      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+    <div class="facebox" id="facebox" style="display:none;">
+  <div class="facebox-popup">
+    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
+    </div>
+    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
+      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
+    </button>
+  </div>
+</div>
+
+  </body>
+</html>
+
